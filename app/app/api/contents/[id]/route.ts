@@ -91,12 +91,54 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
+    console.log('🚀 PUT /api/contents/[id]: Starting content update for ID:', params.id)
+    
     const session = await getServerSession(authOptions)
     if (!session) {
+      console.log('❌ PUT /api/contents/[id]: No session found')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
+    console.log('✅ PUT /api/contents/[id]: Session found', { 
+      userId: session.user.id, 
+      role: session.user.role 
+    })
+
     const body = await request.json()
+    console.log('📝 PUT /api/contents/[id]: Request body received', JSON.stringify(body, null, 2))
+    
+    const {
+      title,
+      description,
+      caption,
+      contentType,
+      platforms,
+      mediaUrls,
+      thumbnailUrl,
+      scheduledDate,
+      assigneeId
+    } = body
+
+    // Validate required fields
+    if (!title) {
+      console.log('❌ PUT /api/contents/[id]: Missing title')
+      return NextResponse.json({ error: 'Title is required' }, { status: 400 })
+    }
+
+    if (!contentType) {
+      console.log('❌ PUT /api/contents/[id]: Missing contentType')
+      return NextResponse.json({ error: 'Content type is required' }, { status: 400 })
+    }
+
+    if (!platforms || platforms.length === 0) {
+      console.log('❌ PUT /api/contents/[id]: Missing platforms')
+      return NextResponse.json({ error: 'At least one platform is required' }, { status: 400 })
+    }
+
+    if (!assigneeId) {
+      console.log('❌ PUT /api/contents/[id]: Missing assigneeId')
+      return NextResponse.json({ error: 'Client assignment is required' }, { status: 400 })
+    }
     
     // Check if content exists and user has permission
     const existingContent = await prisma.content.findUnique({
@@ -104,20 +146,32 @@ export async function PUT(
     })
 
     if (!existingContent) {
+      console.log('❌ PUT /api/contents/[id]: Content not found')
       return NextResponse.json({ error: 'Content not found' }, { status: 404 })
     }
 
     // Only creator or admin can update content
     if (session.user.role === 'CLIENT' || 
         (session.user.role === 'EMPLOYEE_AGENCY' && existingContent.creatorId !== session.user.id)) {
+      console.log('❌ PUT /api/contents/[id]: Insufficient permissions')
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
+
+    console.log('✅ PUT /api/contents/[id]: All validations passed, updating content...')
 
     const content = await prisma.content.update({
       where: { id: params.id },
       data: {
-        ...body,
-        scheduledDate: body.scheduledDate ? new Date(body.scheduledDate) : undefined,
+        title,
+        description,
+        caption,
+        contentType,
+        platforms,
+        mediaUrls: mediaUrls || [],
+        thumbnailUrl,
+        scheduledDate: scheduledDate ? new Date(scheduledDate) : null,
+        assigneeId,
+        // Preserve status - don't change it during edit
         updatedAt: new Date()
       },
       include: {
@@ -140,11 +194,19 @@ export async function PUT(
       }
     })
 
+    console.log('✅ PUT /api/contents/[id]: Content updated successfully', { contentId: content.id })
+
     return NextResponse.json(content)
-  } catch (error) {
-    console.error('Error updating content:', error)
+  } catch (error: any) {
+    console.error('❌ PUT /api/contents/[id]: Error updating content:', error)
+    console.error('❌ PUT /api/contents/[id]: Error details:', {
+      name: error?.name,
+      message: error?.message,
+      stack: error?.stack,
+      code: error?.code
+    })
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', details: error?.message },
       { status: 500 }
     )
   }

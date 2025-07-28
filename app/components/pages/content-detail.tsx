@@ -373,10 +373,12 @@ export function ContentDetailPage({ contentId }: ContentDetailProps) {
                 <CardTitle>Ações</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <Button className="w-full" variant="outline">
-                  <Edit className="mr-2 h-4 w-4" />
-                  Editar Conteúdo
-                </Button>
+                <Link href={`/dashboard/agency/contents/${contentId}/edit`}>
+                  <Button className="w-full" variant="outline">
+                    <Edit className="mr-2 h-4 w-4" />
+                    Editar Conteúdo
+                  </Button>
+                </Link>
                 {content.status === 'APPROVED' && (
                   <Button className="w-full">
                     <Share2 className="mr-2 h-4 w-4" />

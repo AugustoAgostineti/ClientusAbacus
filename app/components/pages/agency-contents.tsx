@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { useToast } from '@/hooks/use-toast'
 import { 
   FileImage, 
   Plus, 
@@ -46,11 +47,13 @@ interface Content {
 }
 
 export function AgencyContentsPage() {
+  const { toast } = useToast()
   const [contents, setContents] = useState<Content[]>([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [platformFilter, setPlatformFilter] = useState('all')
+  const [deletingContent, setDeletingContent] = useState<string | null>(null)
 
   useEffect(() => {
     fetchContents()
@@ -96,6 +99,70 @@ export function AgencyContentsPage() {
     }
     
     return colors[platform as keyof typeof colors] || 'bg-gray-100 text-gray-800'
+  }
+
+  const handleDeleteContent = async (contentId: string, contentTitle: string) => {
+    const confirmDelete = window.confirm(
+      `Tem certeza que deseja excluir o conteúdo "${contentTitle}"?\n\nEsta ação não pode ser desfeita.`
+    )
+    
+    if (!confirmDelete) return
+
+    setDeletingContent(contentId)
+    
+    try {
+      const response = await fetch(`/api/contents/${contentId}`, {
+        method: 'DELETE',
+      })
+
+      if (response.ok) {
+        toast({
+          title: "Conteúdo excluído!",
+          description: `O conteúdo "${contentTitle}" foi removido com sucesso.`,
+        })
+        
+        // Remove from list
+        setContents(prev => prev.filter(c => c.id !== contentId))
+      } else {
+        const error = await response.json()
+        console.error('❌ DELETE CONTENT: Failed to delete:', error)
+        
+        if (response.status === 401) {
+          toast({
+            title: "Sessão expirada",
+            description: "Faça login novamente para continuar.",
+            variant: "destructive",
+          })
+        } else if (response.status === 403) {
+          toast({
+            title: "Acesso negado",
+            description: "Você não tem permissão para excluir este conteúdo.",
+            variant: "destructive",
+          })
+        } else if (response.status === 404) {
+          toast({
+            title: "Conteúdo não encontrado",
+            description: "O conteúdo pode já ter sido excluído.",
+            variant: "destructive",
+          })
+        } else {
+          toast({
+            title: "Erro ao excluir",
+            description: error.error || "Erro interno do servidor",
+            variant: "destructive",
+          })
+        }
+      }
+    } catch (error) {
+      console.error('❌ DELETE CONTENT: Network error:', error)
+      toast({
+        title: "Erro de conexão",
+        description: "Verifique sua conexão com a internet e tente novamente",
+        variant: "destructive",
+      })
+    } finally {
+      setDeletingContent(null)
+    }
   }
 
   const filteredContents = contents.filter(content =>
@@ -262,10 +329,18 @@ export function AgencyContentsPage() {
                           Ver
                         </Button>
                       </Link>
-                      <Button variant="outline" size="sm">
-                        <Edit className="h-4 w-4" />
-                      </Button>
-                      <Button variant="outline" size="sm" className="text-red-600 hover:text-red-700">
+                      <Link href={`/dashboard/agency/contents/${content.id}/edit`}>
+                        <Button variant="outline" size="sm">
+                          <Edit className="h-4 w-4" />
+                        </Button>
+                      </Link>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="text-red-600 hover:text-red-700"
+                        onClick={() => handleDeleteContent(content.id, content.title)}
+                        disabled={deletingContent === content.id}
+                      >
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>

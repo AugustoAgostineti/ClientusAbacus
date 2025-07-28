@@ -2,7 +2,7 @@
 
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { DashboardLayout } from '@/components/layout/dashboard-layout'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -14,7 +14,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox'
 import { MediaUpload } from '@/components/ui/media-upload'
 import { useToast } from '@/hooks/use-toast'
-import { FileImage, Upload, Save, ArrowLeft, Users, Loader2, Edit } from 'lucide-react'
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog'
+import { FileImage, Upload, Save, ArrowLeft, Users, Loader2, Edit, AlertTriangle, RotateCcw } from 'lucide-react'
 import Link from 'next/link'
 
 interface Client {
@@ -46,6 +47,7 @@ export function EditContentPage({ contentId }: EditContentProps) {
   const [clients, setClients] = useState<Client[]>([])
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([])
   
+  // Current form data (being edited)
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -55,6 +57,52 @@ export function EditContentPage({ contentId }: EditContentProps) {
     scheduledDate: '',
     assigneeId: ''
   })
+
+  // Original data from server (for comparison and reset)
+  const [originalData, setOriginalData] = useState({
+    title: '',
+    description: '',
+    caption: '',
+    contentType: '',
+    platforms: [] as string[],
+    scheduledDate: '',
+    assigneeId: ''
+  })
+
+  // Original files from server
+  const [originalFiles, setOriginalFiles] = useState<UploadedFile[]>([])
+
+  // State for unsaved changes detection
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const [showCancelDialog, setShowCancelDialog] = useState(false)
+  const [showLeaveDialog, setShowLeaveDialog] = useState(false)
+  const [pendingNavigation, setPendingNavigation] = useState<string | null>(null)
+
+  // Function to detect changes between current and original data
+  const detectChanges = useCallback(() => {
+    const formChanged = JSON.stringify(formData) !== JSON.stringify(originalData)
+    const filesChanged = JSON.stringify(uploadedFiles) !== JSON.stringify(originalFiles)
+    return formChanged || filesChanged
+  }, [formData, originalData, uploadedFiles, originalFiles])
+
+  // Update hasUnsavedChanges whenever form data or files change
+  useEffect(() => {
+    setHasUnsavedChanges(detectChanges())
+  }, [detectChanges])
+
+  // Prevent navigation if there are unsaved changes
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (hasUnsavedChanges) {
+        e.preventDefault()
+        e.returnValue = 'Você tem alterações não salvas. Deseja sair mesmo assim?'
+        return e.returnValue
+      }
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload)
+  }, [hasUnsavedChanges])
 
   // Fetch content data and clients on component mount
   useEffect(() => {
@@ -72,8 +120,8 @@ export function EditContentPage({ contentId }: EditContentProps) {
         const content = await response.json()
         console.log('✅ EDIT-CONTENT: Content data received:', content)
         
-        // Pre-populate form with existing data
-        setFormData({
+        // Prepare data objects
+        const dataObject = {
           title: content.title || '',
           description: content.description || '',
           caption: content.caption || '',
@@ -82,11 +130,16 @@ export function EditContentPage({ contentId }: EditContentProps) {
           scheduledDate: content.scheduledDate ? 
             new Date(content.scheduledDate).toISOString().slice(0, 16) : '',
           assigneeId: content.assigneeId || ''
-        })
+        }
+
+        // Set both original and current form data (no changes initially)
+        setOriginalData({ ...dataObject })
+        setFormData({ ...dataObject })
 
         // Convert existing mediaUrls to UploadedFile format
+        let existingFiles: UploadedFile[] = []
         if (content.mediaUrls && content.mediaUrls.length > 0) {
-          const existingFiles: UploadedFile[] = content.mediaUrls.map((url: string, index: number) => {
+          existingFiles = content.mediaUrls.map((url: string, index: number) => {
             const isImage = /\.(jpg|jpeg|png|gif|webp)$/i.test(url)
             const isVideo = /\.(mp4|mov|avi|mkv|webm)$/i.test(url)
             
@@ -99,8 +152,11 @@ export function EditContentPage({ contentId }: EditContentProps) {
               isVideo: isVideo
             }
           })
-          setUploadedFiles(existingFiles)
         }
+
+        // Set both original and current files (no changes initially)
+        setOriginalFiles([...existingFiles])
+        setUploadedFiles([...existingFiles])
         
         console.log('✅ EDIT-CONTENT: Form populated with existing data')
       } else {
@@ -180,6 +236,51 @@ export function EditContentPage({ contentId }: EditContentProps) {
     setUploadedFiles(prev => prev.filter((_, i) => i !== index))
   }
 
+  // Reset form to original data
+  const handleResetToOriginal = () => {
+    setFormData({ ...originalData })
+    setUploadedFiles([...originalFiles])
+    setHasUnsavedChanges(false)
+    toast({
+      title: "Alterações descartadas",
+      description: "O formulário foi restaurado para os dados originais.",
+    })
+  }
+
+  // Handle cancel with confirmation if there are unsaved changes
+  const handleCancelWithConfirmation = () => {
+    if (hasUnsavedChanges) {
+      setShowCancelDialog(true)
+    } else {
+      router.push('/dashboard/agency/contents')
+    }
+  }
+
+  // Confirm cancel and discard changes
+  const handleConfirmCancel = () => {
+    setShowCancelDialog(false)
+    router.push('/dashboard/agency/contents')
+  }
+
+  // Handle navigation with unsaved changes check
+  const handleNavigation = (path: string) => {
+    if (hasUnsavedChanges) {
+      setPendingNavigation(path)
+      setShowLeaveDialog(true)
+    } else {
+      router.push(path)
+    }
+  }
+
+  // Confirm navigation and discard changes
+  const handleConfirmNavigation = () => {
+    if (pendingNavigation) {
+      router.push(pendingNavigation)
+      setPendingNavigation(null)
+    }
+    setShowLeaveDialog(false)
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
@@ -207,6 +308,11 @@ export function EditContentPage({ contentId }: EditContentProps) {
       if (response.ok) {
         const updatedContent = await response.json()
         console.log('✅ EDIT-CONTENT: Content updated successfully:', updatedContent.id)
+        
+        // Update original data to reflect saved changes
+        setOriginalData({ ...formData })
+        setOriginalFiles([...uploadedFiles])
+        setHasUnsavedChanges(false)
         
         toast({
           title: "Conteúdo atualizado com sucesso!",
@@ -274,17 +380,37 @@ export function EditContentPage({ contentId }: EditContentProps) {
 
   return (
     <DashboardLayout
-      title="Editar Conteúdo"
-      description="Modifique as informações, mídia e configurações do conteúdo"
+      title={hasUnsavedChanges ? "Editar Conteúdo *" : "Editar Conteúdo"}
+      description={hasUnsavedChanges ? "Modifique as informações, mídia e configurações do conteúdo (* alterações não salvas)" : "Modifique as informações, mídia e configurações do conteúdo"}
     >
       <div className="max-w-4xl mx-auto">
-        <div className="mb-6">
-          <Link href="/dashboard/agency/contents">
-            <Button variant="outline">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Voltar para Conteúdos
-            </Button>
-          </Link>
+        <div className="mb-6 flex items-center justify-between">
+          <Button 
+            variant="outline" 
+            onClick={() => handleNavigation('/dashboard/agency/contents')}
+            type="button"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Voltar para Conteúdos
+          </Button>
+          
+          {hasUnsavedChanges && (
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="h-4 w-4 text-amber-500" />
+              <span className="text-sm text-amber-600 font-medium">
+                Alterações não salvas
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleResetToOriginal}
+                type="button"
+              >
+                <RotateCcw className="mr-1 h-3 w-3" />
+                Restaurar
+              </Button>
+            </div>
+          )}
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -451,37 +577,109 @@ export function EditContentPage({ contentId }: EditContentProps) {
             </CardContent>
           </Card>
 
-          <div className="flex justify-end gap-4">
-            <Link href="/dashboard/agency/contents">
-              <Button variant="outline" type="button">
+          <div className="flex justify-between">
+            <div className="flex gap-2">
+              {hasUnsavedChanges && (
+                <Button
+                  variant="ghost"
+                  type="button"
+                  onClick={handleResetToOriginal}
+                  disabled={loading}
+                >
+                  <RotateCcw className="mr-2 h-4 w-4" />
+                  Restaurar Original
+                </Button>
+              )}
+            </div>
+            
+            <div className="flex gap-4">
+              <Button 
+                variant="outline" 
+                type="button"
+                onClick={handleCancelWithConfirmation}
+                disabled={loading}
+              >
                 Cancelar
               </Button>
-            </Link>
-            <Button 
-              type="submit" 
-              disabled={
-                loading || 
-                !formData.title || 
-                !formData.contentType || 
-                formData.platforms.length === 0 ||
-                !formData.assigneeId
-              }
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Salvando...
-                </>
-              ) : (
-                <>
-                  <Save className="mr-2 h-4 w-4" />
-                  Salvar Alterações
-                </>
-              )}
-            </Button>
+              <Button 
+                type="submit" 
+                disabled={
+                  loading || 
+                  !formData.title || 
+                  !formData.contentType || 
+                  formData.platforms.length === 0 ||
+                  !formData.assigneeId ||
+                  !hasUnsavedChanges
+                }
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Salvando...
+                  </>
+                ) : (
+                  <>
+                    <Save className="mr-2 h-4 w-4" />
+                    {hasUnsavedChanges ? 'Salvar Alterações' : 'Sem Alterações'}
+                  </>
+                )}
+              </Button>
+            </div>
           </div>
         </form>
       </div>
+
+      {/* Cancel Confirmation Dialog */}
+      <AlertDialog open={showCancelDialog} onOpenChange={setShowCancelDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center">
+              <AlertTriangle className="mr-2 h-5 w-5 text-amber-500" />
+              Descartar alterações?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              Você tem alterações não salvas neste conteúdo. Se continuar, todas as alterações serão perdidas permanentemente.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setShowCancelDialog(false)}>
+              Continuar editando
+            </AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={handleConfirmCancel}
+              className="bg-red-600 hover:bg-red-700"
+            >
+              Sim, descartar alterações
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Navigation Confirmation Dialog */}
+      <AlertDialog open={showLeaveDialog} onOpenChange={setShowLeaveDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center">
+              <AlertTriangle className="mr-2 h-5 w-5 text-amber-500" />
+              Sair sem salvar?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              Você tem alterações não salvas. Se sair agora, todas as alterações serão perdidas permanentemente.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setShowLeaveDialog(false)}>
+              Continuar editando
+            </AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={handleConfirmNavigation}
+              className="bg-red-600 hover:bg-red-700"
+            >
+              Sim, sair sem salvar
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </DashboardLayout>
   )
 }

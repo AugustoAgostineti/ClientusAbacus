@@ -21,13 +21,17 @@ export async function GET(request: NextRequest) {
     // Agency users can see their clients
     if (session.user.role === 'ADMIN_AGENCY' || session.user.role === 'EMPLOYEE_AGENCY') {
       if (role === 'CLIENT') {
-        whereClause = {
-          role: 'CLIENT',
-          OR: [
-            { agencyManagerId: session.user.id },
-            // Admin can see all clients
-            ...(session.user.role === 'ADMIN_AGENCY' ? [{}] : [])
-          ]
+        if (session.user.role === 'ADMIN_AGENCY') {
+          // Admin can see all clients
+          whereClause = {
+            role: 'CLIENT'
+          }
+        } else {
+          // Employee can only see their assigned clients
+          whereClause = {
+            role: 'CLIENT',
+            agencyManagerId: session.user.id
+          }
         }
       } else {
         // Can see all agency users

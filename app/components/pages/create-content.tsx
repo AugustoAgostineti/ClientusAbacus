@@ -56,17 +56,24 @@ export function CreateContentPage() {
   }, [])
 
   const fetchClients = async () => {
+    console.log('🔄 CREATE-CONTENT: Starting fetchClients...')
     try {
       setLoadingClients(true)
-      const response = await fetch('/api/users')
+      console.log('📡 CREATE-CONTENT: Making request to /api/users?role=CLIENT')
+      const response = await fetch('/api/users?role=CLIENT')
+      console.log('📡 CREATE-CONTENT: Response status:', response.status)
+      console.log('📡 CREATE-CONTENT: Response ok:', response.ok)
       
       if (response.ok) {
-        const users = await response.json()
-        // Filter only clients
-        const clientUsers = users.filter((user: any) => user.role === 'CLIENT')
+        const clientUsers = await response.json()
+        console.log('✅ CREATE-CONTENT: Data received:', clientUsers)
+        console.log('✅ CREATE-CONTENT: Number of clients:', clientUsers.length)
         setClients(clientUsers)
+        console.log('✅ CREATE-CONTENT: State updated with clients')
       } else {
-        console.error('Failed to fetch clients')
+        console.error('❌ CREATE-CONTENT: Response not ok:', response.status, response.statusText)
+        const errorData = await response.text()
+        console.error('❌ CREATE-CONTENT: Error data:', errorData)
         toast({
           title: "Erro",
           description: "Não foi possível carregar a lista de clientes",
@@ -74,7 +81,7 @@ export function CreateContentPage() {
         })
       }
     } catch (error) {
-      console.error('Error fetching clients:', error)
+      console.error('❌ CREATE-CONTENT: Fetch error:', error)
       toast({
         title: "Erro",
         description: "Erro ao carregar clientes",
@@ -82,6 +89,7 @@ export function CreateContentPage() {
       })
     } finally {
       setLoadingClients(false)
+      console.log('🏁 CREATE-CONTENT: Loading set to false')
     }
   }
 

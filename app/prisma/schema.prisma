@@ -9,7 +9,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-// NextAuth.js models
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -45,43 +44,100 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// Application models
-enum UserRole {
-  ADMIN_AGENCY
-  EMPLOYEE_AGENCY
-  CLIENT
+model Approval {
+  id          String    @id @default(cuid())
+  approved    Boolean?
+  feedback    String?
+  approvedAt  DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  // Relations
+  contentId   String
+  content     Content   @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  approverId  String
+  approver    User      @relation(fields: [approverId], references: [id])
+
+  @@map("approvals")
 }
 
-enum ContentType {
-  IMAGE
-  CAROUSEL
-  VIDEO
-  STORY
+model Comment {
+  id        String   @id @default(cuid())
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  contentId String
+  content   Content  @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
+
+  @@map("comments")
 }
 
-enum Platform {
-  INSTAGRAM
-  FACEBOOK
-  TIKTOK
-  YOUTUBE
+model Content {
+  id            String        @id @default(cuid())
+  title         String
+  description   String?
+  caption       String?
+  contentType   ContentType
+  platforms     Platform[]
+  mediaUrls     String[]      @default([])
+  thumbnailUrl  String?
+  status        ContentStatus @default(DRAFT)
+  scheduledDate DateTime?
+  publishedAt   DateTime?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  
+  // Relations
+  creatorId     String
+  creator       User          @relation("ContentCreator", fields: [creatorId], references: [id])
+  assigneeId    String?
+  assignee      User?         @relation("ContentAssignee", fields: [assigneeId], references: [id])
+  
+  approvals     Approval[]
+  comments      Comment[]
+  notifications Notification[]
+
+  @@map("contents")
 }
 
-enum ContentStatus {
-  DRAFT
-  PENDING_APPROVAL
-  APPROVED
-  REVISION_REQUESTED
-  REJECTED
-  PUBLISHED
+model Document {
+  id          String   @id @default(cuid())
+  name        String
+  fileUrl     String
+  fileSize    Int?
+  mimeType    String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  uploaderId  String
+  uploader    User     @relation(fields: [uploaderId], references: [id])
+
+  @@map("documents")
 }
 
-enum NotificationType {
-  CONTENT_CREATED
-  APPROVAL_REQUESTED
-  CONTENT_APPROVED
-  REVISION_REQUESTED
-  CONTENT_REJECTED
-  CONTENT_PUBLISHED
+model Notification {
+  id          String           @id @default(cuid())
+  type        NotificationType
+  title       String
+  message     String
+  read        Boolean          @default(false)
+  createdAt   DateTime         @default(now())
+  
+  // Relations
+  recipientId String
+  recipient   User             @relation("NotificationRecipient", fields: [recipientId], references: [id])
+  senderId    String?
+  sender      User?            @relation("NotificationSender", fields: [senderId], references: [id])
+  contentId   String?
+  content     Content?         @relation(fields: [contentId], references: [id])
+
+  @@map("notifications")
 }
 
 model User {
@@ -117,98 +173,40 @@ model User {
   @@map("users")
 }
 
-model Content {
-  id            String        @id @default(cuid())
-  title         String
-  description   String?
-  caption       String?
-  contentType   ContentType
-  platforms     Platform[]
-  mediaUrls     String[]      @default([])
-  thumbnailUrl  String?
-  status        ContentStatus @default(DRAFT)
-  scheduledDate DateTime?
-  publishedAt   DateTime?
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
-  
-  // Relations
-  creatorId     String
-  creator       User          @relation("ContentCreator", fields: [creatorId], references: [id])
-  assigneeId    String?
-  assignee      User?         @relation("ContentAssignee", fields: [assigneeId], references: [id])
-  
-  approvals     Approval[]
-  comments      Comment[]
-  notifications Notification[]
-
-  @@map("contents")
+enum ContentStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  REVISION_REQUESTED
+  REJECTED
+  PUBLISHED
 }
 
-model Approval {
-  id          String    @id @default(cuid())
-  approved    Boolean?
-  feedback    String?
-  approvedAt  DateTime?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  
-  // Relations
-  contentId   String
-  content     Content   @relation(fields: [contentId], references: [id], onDelete: Cascade)
-  approverId  String
-  approver    User      @relation(fields: [approverId], references: [id])
-
-  @@map("approvals")
+enum ContentType {
+  IMAGE
+  CAROUSEL
+  VIDEO
+  STORY
 }
 
-model Comment {
-  id        String   @id @default(cuid())
-  message   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  
-  // Relations
-  contentId String
-  content   Content  @relation(fields: [contentId], references: [id], onDelete: Cascade)
-  authorId  String
-  author    User     @relation(fields: [authorId], references: [id])
-
-  @@map("comments")
+enum NotificationType {
+  CONTENT_CREATED
+  APPROVAL_REQUESTED
+  CONTENT_APPROVED
+  REVISION_REQUESTED
+  CONTENT_REJECTED
+  CONTENT_PUBLISHED
 }
 
-model Notification {
-  id          String           @id @default(cuid())
-  type        NotificationType
-  title       String
-  message     String
-  read        Boolean          @default(false)
-  createdAt   DateTime         @default(now())
-  
-  // Relations
-  recipientId String
-  recipient   User             @relation("NotificationRecipient", fields: [recipientId], references: [id])
-  senderId    String?
-  sender      User?            @relation("NotificationSender", fields: [senderId], references: [id])
-  contentId   String?
-  content     Content?         @relation(fields: [contentId], references: [id])
-
-  @@map("notifications")
+enum Platform {
+  INSTAGRAM
+  FACEBOOK
+  TIKTOK
+  YOUTUBE
 }
 
-model Document {
-  id          String   @id @default(cuid())
-  name        String
-  fileUrl     String
-  fileSize    Int?
-  mimeType    String?
-  description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
-  // Relations
-  uploaderId  String
-  uploader    User     @relation(fields: [uploaderId], references: [id])
-
-  @@map("documents")
+enum UserRole {
+  ADMIN_AGENCY
+  EMPLOYEE_AGENCY
+  CLIENT
 }

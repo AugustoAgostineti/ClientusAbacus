@@ -40,16 +40,29 @@ export function AgencyClientsPage() {
   }, [])
 
   const fetchClients = async () => {
+    console.log('🔄 COMPONENT: Starting fetchClients...')
     try {
+      console.log('📡 COMPONENT: Making request to /api/users?role=CLIENT')
       const response = await fetch('/api/users?role=CLIENT')
+      console.log('📡 COMPONENT: Response status:', response.status)
+      console.log('📡 COMPONENT: Response ok:', response.ok)
+      
       if (response.ok) {
         const data = await response.json()
+        console.log('✅ COMPONENT: Data received:', data)
+        console.log('✅ COMPONENT: Number of clients:', data.length)
         setClients(data)
+        console.log('✅ COMPONENT: State updated with clients')
+      } else {
+        console.error('❌ COMPONENT: Response not ok:', response.status, response.statusText)
+        const errorData = await response.text()
+        console.error('❌ COMPONENT: Error data:', errorData)
       }
     } catch (error) {
-      console.error('Error fetching clients:', error)
+      console.error('❌ COMPONENT: Fetch error:', error)
     } finally {
       setLoading(false)
+      console.log('🏁 COMPONENT: Loading set to false')
     }
   }
 

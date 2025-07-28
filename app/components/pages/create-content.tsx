@@ -147,16 +147,39 @@ export function CreateContentPage() {
         router.push('/dashboard/agency/contents')
       } else {
         const error = await response.json()
-        toast({
-          title: "Erro ao criar conteúdo",
-          description: error.message || "Erro interno do servidor",
-          variant: "destructive",
-        })
+        
+        if (response.status === 401) {
+          toast({
+            title: "Sessão expirada",
+            description: "Faça login novamente para continuar.",
+            variant: "destructive",
+          })
+          router.push('/auth/signin')
+        } else if (response.status === 403) {
+          toast({
+            title: "Acesso negado",
+            description: "Você não tem permissão para criar conteúdo.",
+            variant: "destructive",
+          })
+        } else if (response.status === 400) {
+          toast({
+            title: "Dados inválidos",
+            description: error.error || "Verifique os dados informados.",
+            variant: "destructive",
+          })
+        } else {
+          toast({
+            title: "Erro ao criar conteúdo",
+            description: error.details || error.error || "Erro interno do servidor",
+            variant: "destructive",
+          })
+        }
       }
     } catch (error) {
+      console.error('❌ CREATE-CONTENT: Network or parsing error:', error)
       toast({
-        title: "Erro no servidor",
-        description: "Tente novamente mais tarde",
+        title: "Erro de conexão",
+        description: "Verifique sua conexão com a internet e tente novamente",
         variant: "destructive",
       })
     } finally {

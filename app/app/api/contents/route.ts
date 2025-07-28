@@ -113,17 +113,29 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('🚀 POST /api/contents: Starting content creation')
+    
     const session = await getServerSession(authOptions)
     if (!session) {
+      console.log('❌ POST /api/contents: No session found')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
+    console.log('✅ POST /api/contents: Session found', { 
+      userId: session.user.id, 
+      role: session.user.role,
+      email: session.user.email 
+    })
+
     // Only agency users can create content
     if (session.user.role === 'CLIENT') {
+      console.log('❌ POST /api/contents: Client role forbidden')
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
 
     const body = await request.json()
+    console.log('📝 POST /api/contents: Request body received', JSON.stringify(body, null, 2))
+    
     const {
       title,
       description,
@@ -135,6 +147,29 @@ export async function POST(request: NextRequest) {
       scheduledDate,
       assigneeId
     } = body
+
+    // Validate required fields
+    if (!title) {
+      console.log('❌ POST /api/contents: Missing title')
+      return NextResponse.json({ error: 'Title is required' }, { status: 400 })
+    }
+
+    if (!contentType) {
+      console.log('❌ POST /api/contents: Missing contentType')
+      return NextResponse.json({ error: 'Content type is required' }, { status: 400 })
+    }
+
+    if (!platforms || platforms.length === 0) {
+      console.log('❌ POST /api/contents: Missing platforms')
+      return NextResponse.json({ error: 'At least one platform is required' }, { status: 400 })
+    }
+
+    if (!assigneeId) {
+      console.log('❌ POST /api/contents: Missing assigneeId')
+      return NextResponse.json({ error: 'Client assignment is required' }, { status: 400 })
+    }
+
+    console.log('✅ POST /api/contents: All validations passed, creating content...')
 
     const content = await prisma.content.create({
       data: {
@@ -169,6 +204,8 @@ export async function POST(request: NextRequest) {
       }
     })
 
+    console.log('✅ POST /api/contents: Content created successfully', { contentId: content.id })
+
     // Create notification for client
     if (assigneeId) {
       await prisma.notification.create({
@@ -181,13 +218,20 @@ export async function POST(request: NextRequest) {
           contentId: content.id
         }
       })
+      console.log('✅ POST /api/contents: Notification created for client')
     }
 
     return NextResponse.json(content, { status: 201 })
-  } catch (error) {
-    console.error('Error creating content:', error)
+  } catch (error: any) {
+    console.error('❌ POST /api/contents: Error creating content:', error)
+    console.error('❌ POST /api/contents: Error details:', {
+      name: error?.name,
+      message: error?.message,
+      stack: error?.stack,
+      code: error?.code
+    })
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', details: error?.message },
       { status: 500 }
     )
   }

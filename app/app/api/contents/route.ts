@@ -182,7 +182,9 @@ export async function POST(request: NextRequest) {
         thumbnailUrl,
         scheduledDate: scheduledDate ? new Date(scheduledDate) : null,
         creatorId: session.user.id,
-        assigneeId
+        assigneeId,
+        // Set status to PENDING_APPROVAL when assigned to a client
+        status: assigneeId ? 'PENDING_APPROVAL' : 'DRAFT'
       },
       include: {
         creator: {

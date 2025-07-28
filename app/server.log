@@ -5,5 +5,16 @@
     · outputFileTracingRoot
 
  ✓ Starting...
- ✓ Ready in 1744ms
+ ✓ Ready in 1750ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.1s (850 modules)
+ GET / 307 in 2559ms
+ ✓ Compiled in 554ms (311 modules)
+ ✓ Compiled /api/auth/[...nextauth] in 310ms (543 modules)
+ POST /api/auth/callback/credentials 302 in 739ms
+ GET / 307 in 87ms
+ ✓ Compiled /auth/signin in 462ms (885 modules)
+ GET /auth/signin 200 in 601ms
+ GET /api/auth/session 200 in 43ms
+ GET /api/auth/session 200 in 23ms
 [?25h

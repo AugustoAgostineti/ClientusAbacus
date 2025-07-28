@@ -4,6 +4,7 @@
 import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from './theme-provider'
 import { Toaster } from './ui/toaster'
+import { Toaster as SonnerToaster } from './ui/sonner'
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -16,6 +17,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       >
         {children}
         <Toaster />
+        <SonnerToaster />
       </ThemeProvider>
     </SessionProvider>
   )

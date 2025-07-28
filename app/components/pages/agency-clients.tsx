@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
+import { AddClientModal } from '@/components/modals/add-client-modal'
 import { 
   Users, 
   Search, 
@@ -32,6 +33,7 @@ export function AgencyClientsPage() {
   const [clients, setClients] = useState<Client[]>([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false)
 
   useEffect(() => {
     fetchClients()
@@ -49,6 +51,10 @@ export function AgencyClientsPage() {
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleClientAdded = () => {
+    fetchClients()
   }
 
   const filteredClients = clients.filter(client =>
@@ -75,7 +81,10 @@ export function AgencyClientsPage() {
       <div className="space-y-6">
         {/* Actions and Search */}
         <div className="flex flex-col sm:flex-row gap-4 justify-between">
-          <Button className="bg-blue-600 hover:bg-blue-700">
+          <Button 
+            className="bg-blue-600 hover:bg-blue-700"
+            onClick={() => setIsAddModalOpen(true)}
+          >
             <Plus className="mr-2 h-4 w-4" />
             Adicionar Cliente
           </Button>
@@ -105,7 +114,7 @@ export function AgencyClientsPage() {
                   : 'Comece adicionando seus primeiros clientes.'}
               </p>
               {!searchTerm && (
-                <Button>
+                <Button onClick={() => setIsAddModalOpen(true)}>
                   <Plus className="mr-2 h-4 w-4" />
                   Adicionar Primeiro Cliente
                 </Button>
@@ -171,6 +180,12 @@ export function AgencyClientsPage() {
           </div>
         )}
       </div>
+
+      <AddClientModal
+        open={isAddModalOpen}
+        onOpenChange={setIsAddModalOpen}
+        onClientAdded={handleClientAdded}
+      />
     </DashboardLayout>
   )
 }

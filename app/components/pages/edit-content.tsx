@@ -15,7 +15,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { MediaUpload } from '@/components/ui/media-upload'
 import { useToast } from '@/hooks/use-toast'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog'
-import { FileImage, Upload, Save, ArrowLeft, Users, Loader2, Edit, AlertTriangle, RotateCcw } from 'lucide-react'
+import { FileImage, Upload, Save, ArrowLeft, Users, Loader2, Edit, AlertTriangle, RotateCcw, Info } from 'lucide-react'
 import Link from 'next/link'
 
 interface Client {
@@ -314,9 +314,20 @@ export function EditContentPage({ contentId }: EditContentProps) {
         setOriginalFiles([...uploadedFiles])
         setHasUnsavedChanges(false)
         
+        // Show appropriate success message based on status change
+        let toastTitle = "Conteúdo atualizado com sucesso!"
+        let toastDescription = "As alterações foram salvas."
+        
+        if (updatedContent.wasResentForApproval) {
+          toastTitle = "Conteúdo atualizado e enviado para aprovação!"
+          toastDescription = "As alterações foram salvas e o conteúdo foi automaticamente reenviado para aprovação do cliente."
+        } else if (updatedContent.statusChanged && updatedContent.status === 'DRAFT') {
+          toastDescription = "As alterações foram salvas. O conteúdo permanece como RASCUNHO pois não tem cliente atribuído."
+        }
+        
         toast({
-          title: "Conteúdo atualizado com sucesso!",
-          description: "As alterações foram salvas.",
+          title: toastTitle,
+          description: toastDescription,
         })
         router.push('/dashboard/agency/contents')
       } else {
@@ -574,6 +585,24 @@ export function EditContentPage({ contentId }: EditContentProps) {
                   </Select>
                 )}
               </div>
+              
+              {/* Aviso sobre reenvio para aprovação */}
+              {formData.assigneeId && (
+                <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                  <div className="flex items-start space-x-2">
+                    <Info className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <div className="text-sm">
+                      <p className="font-medium text-blue-800 mb-1">
+                        Reenvio automático para aprovação
+                      </p>
+                      <p className="text-blue-700">
+                        Como este conteúdo tem um cliente atribuído, após salvar as alterações ele será automaticamente 
+                        enviado para aprovação. O cliente receberá uma nova solicitação de aprovação.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
 

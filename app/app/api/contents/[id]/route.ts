@@ -159,6 +159,47 @@ export async function PUT(
 
     console.log('✅ PUT /api/contents/[id]: All validations passed, updating content...')
 
+    // Check if content should be sent for approval
+    const shouldResetForApproval = assigneeId && assigneeId !== existingContent.assigneeId
+    const isContentChanged = (
+      title !== existingContent.title ||
+      description !== existingContent.description ||
+      caption !== existingContent.caption ||
+      contentType !== existingContent.contentType ||
+      JSON.stringify(platforms) !== JSON.stringify(existingContent.platforms) ||
+      JSON.stringify(mediaUrls || []) !== JSON.stringify(existingContent.mediaUrls) ||
+      thumbnailUrl !== existingContent.thumbnailUrl ||
+      (scheduledDate ? new Date(scheduledDate).getTime() : null) !== (existingContent.scheduledDate?.getTime() || null)
+    )
+
+    // Determine new status
+    let newStatus = existingContent.status
+    let statusMessage = ''
+    
+    if (assigneeId) {
+      // If content has a client assigned and content was modified, reset to PENDING_APPROVAL
+      if (isContentChanged || shouldResetForApproval) {
+        newStatus = 'PENDING_APPROVAL'
+        statusMessage = assigneeId !== existingContent.assigneeId 
+          ? '🔄 Status updated: Content reassigned and sent for approval'
+          : '🔄 Status updated: Content modified and sent for approval'
+        console.log(`📤 PUT /api/contents/[id]: ${statusMessage}`)
+      }
+    } else {
+      // If no client assigned, keep as DRAFT
+      newStatus = 'DRAFT'
+      statusMessage = '📝 Status: Content saved as DRAFT (no client assigned)'
+      console.log(`💾 PUT /api/contents/[id]: ${statusMessage}`)
+    }
+
+    // If status is being reset to PENDING_APPROVAL, clear previous approvals
+    if (newStatus === 'PENDING_APPROVAL' && existingContent.status !== 'PENDING_APPROVAL') {
+      console.log('🗑️ PUT /api/contents/[id]: Clearing previous approvals for resubmission')
+      await prisma.approval.deleteMany({
+        where: { contentId: params.id }
+      })
+    }
+
     const content = await prisma.content.update({
       where: { id: params.id },
       data: {
@@ -171,7 +212,7 @@ export async function PUT(
         thumbnailUrl,
         scheduledDate: scheduledDate ? new Date(scheduledDate) : null,
         assigneeId,
-        // Preserve status - don't change it during edit
+        status: newStatus,
         updatedAt: new Date()
       },
       include: {
@@ -196,7 +237,15 @@ export async function PUT(
 
     console.log('✅ PUT /api/contents/[id]: Content updated successfully', { contentId: content.id })
 
-    return NextResponse.json(content)
+    // Include status change information in response
+    const response = {
+      ...content,
+      statusChanged: newStatus !== existingContent.status,
+      statusMessage: statusMessage,
+      wasResentForApproval: newStatus === 'PENDING_APPROVAL' && existingContent.status !== 'PENDING_APPROVAL'
+    }
+
+    return NextResponse.json(response)
   } catch (error: any) {
     console.error('❌ PUT /api/contents/[id]: Error updating content:', error)
     console.error('❌ PUT /api/contents/[id]: Error details:', {

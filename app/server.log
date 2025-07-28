@@ -5,20 +5,5 @@
     · outputFileTracingRoot
 
  ✓ Starting...
- ✓ Ready in 1686ms
- ○ Compiling / ...
- ✓ Compiled / in 2.4s (850 modules)
- GET / 307 in 2981ms
- ○ Compiling /auth/signin ...
- ✓ Compiled /auth/signin in 1191ms (881 modules)
- GET /auth/signin 200 in 873ms
- ✓ Compiled /api/auth/[...nextauth] in 220ms (566 modules)
- GET /api/auth/session 200 in 631ms
- GET /api/auth/session 200 in 116ms
- ✓ Compiled /api/contents in 248ms (592 modules)
- POST /api/contents 401 in 346ms
- ✓ Compiled in 541ms (923 modules)
- GET /auth/signin?_rsc=7jtel 200 in 53ms
- ✓ Compiled in 398ms (920 modules)
- GET /auth/signin?_rsc=7jtel 200 in 45ms
+ ✓ Ready in 1744ms
 [?25h

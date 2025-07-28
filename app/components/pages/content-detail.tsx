@@ -17,10 +17,12 @@ import {
   XCircle,
   Clock,
   Edit,
-  Share2
+  Share2,
+  History
 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ContentHistory } from './content-history'
 
 interface ContentDetailProps {
   contentId: string
@@ -32,6 +34,7 @@ export function ContentDetailPage({ contentId }: ContentDetailProps) {
   const [loading, setLoading] = useState(true)
   const [commentText, setCommentText] = useState('')
   const [submittingComment, setSubmittingComment] = useState(false)
+  const [showHistory, setShowHistory] = useState(false)
 
   useEffect(() => {
     fetchContent()
@@ -151,8 +154,8 @@ export function ContentDetailPage({ contentId }: ContentDetailProps) {
 
   return (
     <DashboardLayout
-      title={content.title}
-      description="Visualize e gerencie os detalhes do conteúdo"
+      title={showHistory ? `Histórico - ${content.title}` : content.title}
+      description={showHistory ? "Visualize o histórico de alterações do conteúdo" : "Visualize e gerencie os detalhes do conteúdo"}
     >
       <div className="max-w-6xl mx-auto">
         <div className="mb-6">
@@ -164,7 +167,13 @@ export function ContentDetailPage({ contentId }: ContentDetailProps) {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {showHistory ? (
+          <ContentHistory 
+            contentId={contentId}
+            onBack={() => setShowHistory(false)}
+          />
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Content Preview */}
@@ -373,6 +382,14 @@ export function ContentDetailPage({ contentId }: ContentDetailProps) {
                 <CardTitle>Ações</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => setShowHistory(!showHistory)}
+                >
+                  <History className="mr-2 h-4 w-4" />
+                  {showHistory ? 'Ver Detalhes' : 'Ver Histórico'}
+                </Button>
                 <Link href={`/dashboard/agency/contents/${contentId}/edit`}>
                   <Button className="w-full" variant="outline">
                     <Edit className="mr-2 h-4 w-4" />
@@ -389,6 +406,7 @@ export function ContentDetailPage({ contentId }: ContentDetailProps) {
             </Card>
           </div>
         </div>
+        )}
       </div>
     </DashboardLayout>
   )

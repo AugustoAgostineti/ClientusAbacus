@@ -100,8 +100,29 @@ model Content {
   approvals     Approval[]
   comments      Comment[]
   notifications Notification[]
+  history       ContentHistory[]
 
   @@map("contents")
+}
+
+model ContentHistory {
+  id            String   @id @default(cuid())
+  contentId     String
+  version       Int      @default(1)
+  changeReason  String?
+  changedAt     DateTime @default(now())
+  
+  // Snapshot of content data before the change
+  previousData  Json     // Stores complete previous state as JSON
+  newData       Json     // Stores new state as JSON
+  changedFields String[] @default([]) // Array of field names that were changed
+  
+  // Relations
+  content       Content  @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  changedById   String
+  changedBy     User     @relation(fields: [changedById], references: [id])
+
+  @@map("content_history")
 }
 
 model Document {
@@ -164,6 +185,7 @@ model User {
   notifications Notification[] @relation("NotificationRecipient")
   sentNotifications Notification[] @relation("NotificationSender")
   documents     Document[]
+  contentHistoryChanges ContentHistory[]
   
   // Client relationship (agency manages clients)
   managedClients User[] @relation("AgencyClient")

@@ -6,6 +6,58 @@ import { prisma } from '@/lib/db'
 
 export const dynamic = 'force-dynamic'
 
+// Helper function to detect changes between old and new content data
+function detectContentChanges(oldData: any, newData: any) {
+  const changedFields: string[] = []
+  
+  // Compare each field
+  if (oldData.title !== newData.title) changedFields.push('title')
+  if (oldData.description !== newData.description) changedFields.push('description')
+  if (oldData.caption !== newData.caption) changedFields.push('caption')
+  if (oldData.contentType !== newData.contentType) changedFields.push('contentType')
+  if (JSON.stringify(oldData.platforms) !== JSON.stringify(newData.platforms)) changedFields.push('platforms')
+  if (JSON.stringify(oldData.mediaUrls) !== JSON.stringify(newData.mediaUrls)) changedFields.push('mediaUrls')
+  if (oldData.thumbnailUrl !== newData.thumbnailUrl) changedFields.push('thumbnailUrl')
+  if (oldData.assigneeId !== newData.assigneeId) changedFields.push('assigneeId')
+  
+  // Compare scheduled date
+  const oldDate = oldData.scheduledDate ? new Date(oldData.scheduledDate).getTime() : null
+  const newDate = newData.scheduledDate ? new Date(newData.scheduledDate).getTime() : null
+  if (oldDate !== newDate) changedFields.push('scheduledDate')
+  
+  return changedFields
+}
+
+// Helper function to create content history record
+async function createContentHistoryRecord(
+  contentId: string,
+  previousData: any,
+  newData: any,
+  changedFields: string[],
+  changedById: string,
+  changeReason?: string
+) {
+  // Get the latest version number for this content
+  const latestHistory = await prisma.contentHistory.findFirst({
+    where: { contentId },
+    orderBy: { version: 'desc' }
+  })
+  
+  const nextVersion = latestHistory ? latestHistory.version + 1 : 1
+  
+  return await prisma.contentHistory.create({
+    data: {
+      contentId,
+      version: nextVersion,
+      previousData: previousData,
+      newData: newData,
+      changedFields,
+      changedById,
+      changeReason: changeReason || null
+    }
+  })
+}
+
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -116,7 +168,8 @@ export async function PUT(
       mediaUrls,
       thumbnailUrl,
       scheduledDate,
-      assigneeId
+      assigneeId,
+      changeReason // Optional reason for the change
     } = body
 
     // Validate required fields
@@ -159,18 +212,38 @@ export async function PUT(
 
     console.log('✅ PUT /api/contents/[id]: All validations passed, updating content...')
 
+    // Prepare current and new data for history tracking
+    const previousData = {
+      title: existingContent.title,
+      description: existingContent.description,
+      caption: existingContent.caption,
+      contentType: existingContent.contentType,
+      platforms: existingContent.platforms,
+      mediaUrls: existingContent.mediaUrls,
+      thumbnailUrl: existingContent.thumbnailUrl,
+      scheduledDate: existingContent.scheduledDate,
+      assigneeId: existingContent.assigneeId,
+      status: existingContent.status
+    }
+
+    const newData = {
+      title,
+      description,
+      caption,
+      contentType,
+      platforms,
+      mediaUrls: mediaUrls || [],
+      thumbnailUrl,
+      scheduledDate: scheduledDate ? new Date(scheduledDate) : null,
+      assigneeId
+    }
+
+    // Detect changes for history tracking
+    const changedFields = detectContentChanges(previousData, newData)
+    const isContentChanged = changedFields.length > 0
+
     // Check if content should be sent for approval
     const shouldResetForApproval = assigneeId && assigneeId !== existingContent.assigneeId
-    const isContentChanged = (
-      title !== existingContent.title ||
-      description !== existingContent.description ||
-      caption !== existingContent.caption ||
-      contentType !== existingContent.contentType ||
-      JSON.stringify(platforms) !== JSON.stringify(existingContent.platforms) ||
-      JSON.stringify(mediaUrls || []) !== JSON.stringify(existingContent.mediaUrls) ||
-      thumbnailUrl !== existingContent.thumbnailUrl ||
-      (scheduledDate ? new Date(scheduledDate).getTime() : null) !== (existingContent.scheduledDate?.getTime() || null)
-    )
 
     // Determine new status
     let newStatus = existingContent.status
@@ -198,6 +271,29 @@ export async function PUT(
       await prisma.approval.deleteMany({
         where: { contentId: params.id }
       })
+    }
+
+    // Create history record if there are changes
+    let historyRecord = null
+    if (isContentChanged) {
+      console.log('📋 PUT /api/contents/[id]: Changes detected, creating history record:', changedFields)
+      
+      try {
+        historyRecord = await createContentHistoryRecord(
+          params.id,
+          previousData,
+          { ...newData, status: newStatus }, // Include new status in the new data
+          changedFields,
+          session.user.id,
+          changeReason
+        )
+        console.log('✅ PUT /api/contents/[id]: History record created:', historyRecord.id)
+      } catch (historyError) {
+        console.error('❌ PUT /api/contents/[id]: Failed to create history record:', historyError)
+        // Continue with content update even if history fails - don't block the main operation
+      }
+    } else {
+      console.log('ℹ️ PUT /api/contents/[id]: No content changes detected, skipping history record')
     }
 
     const content = await prisma.content.update({
@@ -242,7 +338,10 @@ export async function PUT(
       ...content,
       statusChanged: newStatus !== existingContent.status,
       statusMessage: statusMessage,
-      wasResentForApproval: newStatus === 'PENDING_APPROVAL' && existingContent.status !== 'PENDING_APPROVAL'
+      wasResentForApproval: newStatus === 'PENDING_APPROVAL' && existingContent.status !== 'PENDING_APPROVAL',
+      historyCreated: historyRecord !== null,
+      historyVersion: historyRecord?.version || null,
+      changedFields: changedFields.length > 0 ? changedFields : null
     }
 
     return NextResponse.json(response)

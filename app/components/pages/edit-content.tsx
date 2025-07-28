@@ -55,7 +55,8 @@ export function EditContentPage({ contentId }: EditContentProps) {
     contentType: '',
     platforms: [] as string[],
     scheduledDate: '',
-    assigneeId: ''
+    assigneeId: '',
+    changeReason: ''
   })
 
   // Original data from server (for comparison and reset)
@@ -66,7 +67,8 @@ export function EditContentPage({ contentId }: EditContentProps) {
     contentType: '',
     platforms: [] as string[],
     scheduledDate: '',
-    assigneeId: ''
+    assigneeId: '',
+    changeReason: ''
   })
 
   // Original files from server
@@ -129,7 +131,8 @@ export function EditContentPage({ contentId }: EditContentProps) {
           platforms: content.platforms || [],
           scheduledDate: content.scheduledDate ? 
             new Date(content.scheduledDate).toISOString().slice(0, 16) : '',
-          assigneeId: content.assigneeId || ''
+          assigneeId: content.assigneeId || '',
+          changeReason: '' // Always empty for editing (not persisted in DB)
         }
 
         // Set both original and current form data (no changes initially)
@@ -292,7 +295,8 @@ export function EditContentPage({ contentId }: EditContentProps) {
       const contentData = {
         ...formData,
         mediaUrls,
-        thumbnailUrl: uploadedFiles.find(f => f.isImage)?.url || null
+        thumbnailUrl: uploadedFiles.find(f => f.isImage)?.url || null,
+        changeReason: formData.changeReason || undefined // Only include if provided
       }
 
       console.log('🚀 EDIT-CONTENT: Submitting update with data:', contentData)
@@ -584,6 +588,21 @@ export function EditContentPage({ contentId }: EditContentProps) {
                     </SelectContent>
                   </Select>
                 )}
+              </div>
+
+              {/* Motivo da alteração (opcional) */}
+              <div>
+                <Label htmlFor="changeReason">Motivo da Alteração (Opcional)</Label>
+                <Textarea
+                  id="changeReason"
+                  value={formData.changeReason}
+                  onChange={(e) => handleInputChange('changeReason', e.target.value)}
+                  placeholder="Descreva brevemente o motivo desta alteração (opcional)"
+                  rows={2}
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Este motivo será registrado no histórico de alterações do conteúdo.
+                </p>
               </div>
               
               {/* Aviso sobre reenvio para aprovação */}

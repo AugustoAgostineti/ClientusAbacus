@@ -1,0 +1,89 @@
+  ▲ Next.js 14.2.28
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 1765ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.3s (846 modules)
+ GET / 307 in 2831ms
+ ✓ Compiled in 514ms (309 modules)
+ ○ Compiling /auth/signin ...
+ ✓ Compiled /auth/signin in 986ms (877 modules)
+ GET /auth/signin 200 in 1157ms
+ GET / 307 in 50ms
+ ✓ Compiled /dashboard/agency in 321ms (964 modules)
+ GET /dashboard/agency 200 in 452ms
+ ✓ Compiled /api/auth/[...nextauth] in 233ms (609 modules)
+ GET /api/auth/session 200 in 648ms
+ ✓ Compiled /api/contents in 181ms (635 modules)
+ GET /api/auth/session 200 in 41ms
+ GET /api/contents 200 in 359ms
+ GET /api/contents 200 in 26ms
+ GET / 307 in 84ms
+ GET /auth/signin 200 in 44ms
+ GET / 307 in 35ms
+ GET /auth/signin 200 in 30ms
+ GET / 307 in 33ms
+ GET /dashboard/agency 200 in 48ms
+ GET /api/contents 200 in 29ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/contents 200 in 35ms
+ GET / 307 in 36ms
+ GET /auth/signin 200 in 29ms
+ GET / 307 in 34ms
+ GET /auth/signin 200 in 33ms
+ GET / 307 in 35ms
+ GET /auth/signin 200 in 29ms
+ GET / 307 in 36ms
+ GET /auth/signin 200 in 33ms
+ GET / 307 in 34ms
+ GET /auth/signin 200 in 31ms
+ GET / 307 in 37ms
+ GET /auth/signin 200 in 31ms
+ GET / 307 in 35ms
+ GET /auth/signin 200 in 29ms
+ GET / 307 in 33ms
+ GET /auth/signin 200 in 31ms
+ GET / 307 in 32ms
+ GET /auth/signin 200 in 30ms
+ GET /api/auth/session 200 in 33ms
+ ○ Compiling /dashboard/agency/clients ...
+ ✓ Compiled /dashboard/agency/clients in 607ms (969 modules)
+ GET /dashboard/agency/clients?_rsc=1otpf 200 in 43ms
+ ✓ Compiled /api/users in 197ms (632 modules)
+ GET /api/users?role=CLIENT 200 in 304ms
+ GET /api/users?role=CLIENT 200 in 20ms
+ GET / 307 in 83ms
+ GET /auth/signin 200 in 43ms
+ ✓ Compiled /dashboard/agency/calendar in 354ms (1009 modules)
+ GET /dashboard/agency/calendar?_rsc=17chd 200 in 26ms
+ ✓ Compiled /api/contents in 138ms (643 modules)
+ GET /api/contents 200 in 190ms
+ GET /api/contents 200 in 26ms
+ ✓ Compiled /dashboard/agency/comments in 352ms (1022 modules)
+ GET /dashboard/agency/comments?_rsc=18mo2 200 in 27ms
+ GET /api/contents 200 in 27ms
+ GET /api/contents 200 in 24ms
+ ✓ Compiled /dashboard/agency in 329ms (659 modules)
+ GET /api/contents 200 in 28ms
+ GET /api/contents 200 in 25ms
+ GET /dashboard/agency/clients?_rsc=gov8d 200 in 28ms
+ GET /api/users?role=CLIENT 200 in 24ms
+ GET /api/users?role=CLIENT 200 in 21ms
+ GET / 307 in 59ms
+ GET /auth/signin 200 in 40ms
+ ✓ Compiled in 490ms (384 modules)
+ ✓ Compiled in 248ms (384 modules)
+ ✓ Compiled in 396ms (384 modules)
+ ✓ Compiled in 326ms (384 modules)
+ ✓ Compiled in 270ms (384 modules)
+ ✓ Compiled in 347ms (384 modules)
+ ✓ Compiled in 269ms (384 modules)
+ ✓ Compiled in 620ms (430 modules)
+ ✓ Compiled in 310ms (430 modules)
+ ✓ Compiled in 280ms (431 modules)
+[?25h

@@ -1,0 +1,6 @@
+app/api/contents/route.ts(228,20): error TS2339: Property 'name' does not exist on type '{}'.
+app/api/contents/route.ts(229,23): error TS2339: Property 'message' does not exist on type '{}'.
+app/api/contents/route.ts(230,21): error TS2339: Property 'stack' does not exist on type '{}'.
+app/api/contents/route.ts(231,20): error TS2339: Property 'code' does not exist on type '{}'.
+app/api/contents/route.ts(234,57): error TS2339: Property 'message' does not exist on type '{}'.
+exit_code=2

@@ -1,0 +1,176 @@
+  ▲ Next.js 14.2.28
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 1811ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.2s (850 modules)
+ GET / 307 in 2827ms
+ ✓ Compiled in 553ms (311 modules)
+ GET / 307 in 45ms
+ ○ Compiling /auth/signin ...
+ ✓ Compiled /auth/signin in 539ms (881 modules)
+ GET /auth/signin 200 in 711ms
+ GET /auth/signin 200 in 40ms
+ GET / 307 in 55ms
+ ✓ Compiled /dashboard/agency in 501ms (968 modules)
+ GET /dashboard/agency 200 in 652ms
+ ✓ Compiled /api/auth/[...nextauth] in 199ms (611 modules)
+ GET /api/auth/session 200 in 663ms
+ ✓ Compiled /api/contents in 213ms (637 modules)
+ GET /api/contents 200 in 398ms
+ GET /api/auth/session 200 in 40ms
+ GET /api/contents 200 in 32ms
+ ○ Compiling /dashboard/agency/contents ...
+ ✓ Compiled /dashboard/agency/contents in 935ms (1156 modules)
+ GET /dashboard/agency/contents?_rsc=oct64 200 in 51ms
+ GET /api/contents? 200 in 42ms
+ GET /api/contents? 200 in 27ms
+ ○ Compiling /dashboard/agency/contents/[id] ...
+ ✓ Compiled /dashboard/agency/contents/[id] in 549ms (1175 modules)
+ GET /dashboard/agency/contents/cmdndqjyz0003rzz8h04w80in?_rsc=i659d 200 in 37ms
+ ✓ Compiled /api/contents/[id] in 247ms (731 modules)
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 637ms
+ GET / 307 in 95ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 41ms
+ GET /auth/signin 200 in 56ms
+ ○ Compiling /dashboard/agency/contents/[id]/edit ...
+ ✓ Compiled /dashboard/agency/contents/[id]/edit in 537ms (1204 modules)
+ GET /dashboard/agency/contents/cmdndqjyz0003rzz8h04w80in/edit?_rsc=1epwg 200 in 46ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 46ms
+ ✓ Compiled /api/users in 238ms (748 modules)
+✅ API /users: Session found: {
+  userId: 'cmdndoulq0000rzz8ai6rxzqx',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 327ms
+✅ API /users: Session found: {
+  userId: 'cmdndoulq0000rzz8ai6rxzqx',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 24ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 50ms
+🚀 PUT /api/contents/[id]: Starting content update for ID: cmdndqjyz0003rzz8h04w80in
+✅ PUT /api/contents/[id]: Session found { userId: 'cmdndoulq0000rzz8ai6rxzqx', role: 'ADMIN_AGENCY' }
+📝 PUT /api/contents/[id]: Request body received {
+  "title": "hbb",
+  "description": "bb",
+  "caption": "  ",
+  "contentType": "CAROUSEL",
+  "platforms": [
+    "INSTAGRAM"
+  ],
+  "scheduledDate": "2025-07-28T15:26",
+  "assigneeId": "cmdndpwrb0001rzz8ybak7mt3",
+  "mediaUrls": [
+    "/api/files/images/1753723568527_Captura_de_Tela_2025-07-28_a_s_12.59.13.png",
+    "/api/files/images/1753723568547_Captura_de_Tela_2025-07-28_a_s_11.24.20.png"
+  ],
+  "thumbnailUrl": "/api/files/images/1753723568527_Captura_de_Tela_2025-07-28_a_s_12.59.13.png"
+}
+✅ PUT /api/contents/[id]: All validations passed, updating content...
+✅ PUT /api/contents/[id]: Content updated successfully { contentId: 'cmdndqjyz0003rzz8h04w80in' }
+ PUT /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 46ms
+ GET /api/contents? 200 in 29ms
+ GET /api/contents? 200 in 29ms
+✅ API /users: Session found: {
+  userId: 'cmdndoulq0000rzz8ai6rxzqx',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 34ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 52ms
+✅ API /users: Session found: {
+  userId: 'cmdndoulq0000rzz8ai6rxzqx',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 32ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 41ms
+🚀 PUT /api/contents/[id]: Starting content update for ID: cmdndqjyz0003rzz8h04w80in
+✅ PUT /api/contents/[id]: Session found { userId: 'cmdndoulq0000rzz8ai6rxzqx', role: 'ADMIN_AGENCY' }
+📝 PUT /api/contents/[id]: Request body received {
+  "title": "hbb",
+  "description": "bb",
+  "caption": "  ",
+  "contentType": "CAROUSEL",
+  "platforms": [
+    "INSTAGRAM"
+  ],
+  "scheduledDate": "2025-07-28T15:26",
+  "assigneeId": "cmdndpwrb0001rzz8ybak7mt3",
+  "mediaUrls": [
+    "/api/files/images/1753723568547_Captura_de_Tela_2025-07-28_a_s_11.24.20.png"
+  ],
+  "thumbnailUrl": "/api/files/images/1753723568547_Captura_de_Tela_2025-07-28_a_s_11.24.20.png"
+}
+✅ PUT /api/contents/[id]: All validations passed, updating content...
+✅ PUT /api/contents/[id]: Content updated successfully { contentId: 'cmdndqjyz0003rzz8h04w80in' }
+ PUT /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 39ms
+ GET /api/contents? 200 in 27ms
+ GET /api/contents? 200 in 27ms
+ GET / 307 in 75ms
+ GET /auth/signin 200 in 45ms
+ ✓ Compiled in 645ms (470 modules)
+ ✓ Compiled in 392ms (470 modules)
+ ✓ Compiled in 406ms (470 modules)
+ ✓ Compiled in 360ms (470 modules)
+ ✓ Compiled in 407ms (470 modules)
+ ✓ Compiled in 365ms (470 modules)
+ ✓ Compiled in 612ms (472 modules)
+ ✓ Compiled in 377ms (472 modules)
+ ✓ Compiled in 586ms (475 modules)
+[?25h

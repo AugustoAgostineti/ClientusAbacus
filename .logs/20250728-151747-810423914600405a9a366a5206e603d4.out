@@ -1,0 +1,229 @@
+  ▲ Next.js 14.2.28
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 1541ms
+ ✓ Compiled /api/auth/[...nextauth] in 440ms (272 modules)
+ GET /api/auth/csrf 200 in 906ms
+ POST /api/auth/callback/credentials 302 in 446ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1933ms (854 modules)
+ GET / 307 in 2354ms
+ ○ Compiling /dashboard/agency ...
+ ✓ Compiled /dashboard/agency in 1125ms (935 modules)
+ GET /dashboard/agency 200 in 830ms
+ GET /api/auth/session 200 in 43ms
+ ✓ Compiled /api/contents in 178ms (617 modules)
+ GET /api/contents 200 in 420ms
+ GET /api/auth/session 200 in 384ms
+ GET /api/contents 200 in 24ms
+ ○ Compiling /dashboard/agency/comments ...
+ ✓ Compiled /dashboard/agency/comments in 1767ms (1250 modules)
+ GET /dashboard/agency 200 in 2207ms
+ GET /dashboard/agency/notifications 200 in 2230ms
+ GET /dashboard/agency/contents 200 in 2242ms
+ GET /dashboard/agency/documents 200 in 2228ms
+ GET /dashboard/agency/clients 200 in 2221ms
+ GET /dashboard/agency/calendar 200 in 2222ms
+ GET /dashboard/agency/comments 200 in 2217ms
+ GET /dashboard/agency/contents/new 200 in 2223ms
+ GET /dashboard/agency/contents/cmdn8j7wg000drzbh3zs6ad8w 200 in 2547ms
+ GET /dashboard/agency/contents/cmdn8j7wi000frzbhhzaygsy1 200 in 2549ms
+ GET /dashboard/agency/contents/cmdn8j7we000brzbh4wxsndgd 200 in 2527ms
+ ✓ Compiled /api/users in 415ms (776 modules)
+ ✓ Compiled /api/contents/[id] in 1ms (778 modules)
+ ✓ Compiled in 0ms (780 modules)
+ ✓ Compiled in 0ms (780 modules)
+ GET /api/auth/session 200 in 1343ms
+ GET /api/contents 200 in 1352ms
+ GET /api/notifications 200 in 1453ms
+ GET /api/contents? 200 in 1372ms
+ ✓ Compiled in 1ms (780 modules)
+✅ API /users: Session found: {
+  userId: 'cmdn8j6x50000rzbh8oagc2tg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+✅ API /users: Session found: {
+  userId: 'cmdn8j6x50000rzbh8oagc2tg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: null
+🏢 Showing agency users
+📋 Final whereClause: {
+  "role": {
+    "in": [
+      "ADMIN_AGENCY",
+      "EMPLOYEE_AGENCY"
+    ]
+  }
+}
+📊 API /users: Found 5 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Teste Cliente (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 1664ms
+📊 API /users: Found 2 users
+👥 Users found: [ 'Maria Silva (EMPLOYEE_AGENCY)', 'John Doe (ADMIN_AGENCY)' ]
+ GET /api/users 200 in 1501ms
+ ✓ Compiled in 1ms (780 modules)
+ ✓ Compiled in 0ms (780 modules)
+ GET /api/contents/cmdn8j7wg000drzbh3zs6ad8w 200 in 1936ms
+ GET /api/contents/cmdn8j7wi000frzbhhzaygsy1 200 in 1936ms
+ GET /api/contents/cmdn8j7we000brzbh4wxsndgd 200 in 1921ms
+ ✓ Compiled in 0ms (780 modules)
+ GET /api/auth/session 200 in 1244ms
+ GET /api/notifications 200 in 1214ms
+ GET /api/contents 200 in 1228ms
+ GET /api/contents? 200 in 1197ms
+ ✓ Compiled in 0ms (780 modules)
+✅ API /users: Session found: {
+  userId: 'cmdn8j6x50000rzbh8oagc2tg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: null
+🏢 Showing agency users
+📋 Final whereClause: {
+  "role": {
+    "in": [
+      "ADMIN_AGENCY",
+      "EMPLOYEE_AGENCY"
+    ]
+  }
+}
+✅ API /users: Session found: {
+  userId: 'cmdn8j6x50000rzbh8oagc2tg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 2 users
+👥 Users found: [ 'Maria Silva (EMPLOYEE_AGENCY)', 'John Doe (ADMIN_AGENCY)' ]
+ GET /api/users 200 in 1221ms
+📊 API /users: Found 5 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Teste Cliente (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 1220ms
+ ✓ Compiled in 1ms (780 modules)
+ ✓ Compiled in 1ms (780 modules)
+ GET /api/contents/cmdn8j7we000brzbh4wxsndgd 200 in 1122ms
+ GET /api/contents/cmdn8j7wg000drzbh3zs6ad8w 200 in 1129ms
+ GET /api/contents/cmdn8j7wi000frzbhhzaygsy1 200 in 1127ms
+ GET /api/auth/session 200 in 1120ms
+ GET /api/contents 200 in 1116ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/contents 200 in 25ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/contents 200 in 23ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/contents 200 in 26ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 102ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 40ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 29ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 24ms
+ GET /dashboard/agency/contents/cmdn8j7wa0009rzbhaefhae7p 200 in 81ms
+ GET /api/contents/cmdn8j7wa0009rzbhaefhae7p 200 in 53ms
+ GET /api/auth/session 200 in 54ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/contents/cmdn8j7wa0009rzbhaefhae7p 200 in 26ms
+ GET / 307 in 47ms
+ ○ Compiling /auth/signin ...
+ ✓ Compiled /auth/signin in 874ms (1275 modules)
+ GET /auth/signin 200 in 987ms
+ GET /api/auth/session 200 in 43ms
+ GET /api/auth/session 200 in 18ms
+ POST /api/auth/callback/credentials 302 in 31ms
+ GET /api/auth/signin?csrf=true 302 in 18ms
+ GET /auth/signin?callbackUrl=https%3A%2F%2F870e21698.preview.abacusai.app 200 in 33ms
+ GET /dashboard/agency/contents/new 307 in 52ms
+❌ API /users: No session found
+ GET /api/users 401 in 25ms
+ ✓ Compiled /api/debug-users in 318ms (793 modules)
+🧪 DEBUG API: Testing user listing without auth
+🧪 DEBUG: No role filter, showing all users
+🧪 DEBUG whereClause: {}
+🧪 DEBUG: Found 7 users
+🧪 DEBUG Users: [
+  't2 (CLIENT)',
+  'Teste Cliente (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)',
+  'Maria Silva (EMPLOYEE_AGENCY)',
+  'John Doe (ADMIN_AGENCY)'
+]
+ GET /api/debug-users 200 in 375ms
+[?25h

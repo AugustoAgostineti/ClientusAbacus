@@ -18,7 +18,9 @@ import {
   Settings,
   LogOut,
   Menu,
-  X
+  X,
+  CheckCircle,
+  Grid3X3
 } from 'lucide-react'
 
 interface SidebarProps {
@@ -45,10 +47,9 @@ export function Sidebar({ className }: SidebarProps) {
 
   const clientNavItems = [
     { name: 'Dashboard', href: '/dashboard/client', icon: LayoutDashboard },
-    { name: 'Aprovações', href: '/dashboard/client/approvals', icon: FileImage },
+    { name: 'Posts', href: '/dashboard/client/posts', icon: Grid3X3 },
+    { name: 'Aprovações', href: '/dashboard/client/approvals', icon: CheckCircle },
     { name: 'Calendário', href: '/dashboard/client/calendar', icon: Calendar },
-    { name: 'Comentários', href: '/dashboard/client/comments', icon: MessageSquare },
-    { name: 'Notificações', href: '/dashboard/client/notifications', icon: Bell },
     { name: 'Documentos', href: '/dashboard/client/documents', icon: FileText },
   ]
 
@@ -66,6 +67,7 @@ export function Sidebar({ className }: SidebarProps) {
           variant="outline"
           size="sm"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
+          className="bg-white/70 backdrop-blur-md border-white/40 hover:bg-white/80 transition-all duration-250"
         >
           {isMobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
         </Button>
@@ -73,23 +75,23 @@ export function Sidebar({ className }: SidebarProps) {
 
       {/* Sidebar */}
       <div className={cn(
-        "fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform transition-transform duration-200 ease-in-out lg:translate-x-0",
+        "fixed inset-y-0 left-0 z-40 w-64 bg-white/70 backdrop-blur-md border-r border-white/40 transform transition-transform duration-200 ease-in-out lg:translate-x-0 shadow-[0_4px_16px_rgba(0,0,0,0.08)]",
         isMobileOpen ? "translate-x-0" : "-translate-x-full",
         className
       )}>
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-center h-16 px-4 border-b border-gray-200">
+          <div className="flex items-center justify-center h-16 px-4 border-b border-white/40">
             <h1 className="text-xl font-bold text-gray-900">
               Social Media
             </h1>
           </div>
 
           {/* User info */}
-          <div className="px-4 py-4 border-b border-gray-200">
+          <div className="px-4 py-4 border-b border-white/40 bg-white/30 backdrop-blur-sm">
             <p className="text-sm font-medium text-gray-900">{session?.user?.name}</p>
-            <p className="text-xs text-gray-500">{session?.user?.email}</p>
-            <p className="text-xs text-blue-600 mt-1">
+            <p className="text-xs text-gray-600">{session?.user?.email}</p>
+            <p className="text-xs text-[#5C7CFA] font-medium mt-1">
               {isAgency ? 'Agência' : 'Cliente'}
             </p>
           </div>
@@ -106,10 +108,10 @@ export function Sidebar({ className }: SidebarProps) {
                   href={item.href}
                   onClick={() => setIsMobileOpen(false)}
                   className={cn(
-                    "flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                    "flex items-center px-3 py-2 text-sm font-medium rounded-xl transition-all duration-250 ease-out backdrop-blur-sm",
                     isActive
-                      ? "bg-blue-100 text-blue-700"
-                      : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                      ? "bg-gradient-to-r from-[#5C7CFA] to-[#7C94FB] text-white shadow-[0_4px_16px_rgba(92,124,250,0.25)] scale-[1.02]"
+                      : "text-gray-700 hover:bg-white/50 hover:text-gray-900 hover:scale-[1.01] hover:shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
                   )}
                 >
                   <Icon className="mr-3 h-4 w-4" />
@@ -120,12 +122,12 @@ export function Sidebar({ className }: SidebarProps) {
           </nav>
 
           {/* Footer */}
-          <div className="px-4 py-4 border-t border-gray-200">
+          <div className="px-4 py-4 border-t border-white/40">
             <Button
               variant="ghost"
               size="sm"
               onClick={handleSignOut}
-              className="w-full justify-start"
+              className="w-full justify-start bg-white/30 hover:bg-white/50 backdrop-blur-sm transition-all duration-250 hover:scale-[1.01] rounded-xl"
             >
               <LogOut className="mr-3 h-4 w-4" />
               Sair
@@ -137,7 +139,7 @@ export function Sidebar({ className }: SidebarProps) {
       {/* Mobile overlay */}
       {isMobileOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black bg-opacity-50 lg:hidden"
+          className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm lg:hidden"
           onClick={() => setIsMobileOpen(false)}
         />
       )}

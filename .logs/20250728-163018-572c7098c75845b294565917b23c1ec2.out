@@ -1,0 +1,24 @@
+app/api/approvals/route.ts(20,34): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/approvals/route.ts(38,35): error TS2551: Property 'Approval' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'approval'?
+app/api/approvals/route.ts(65,18): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/approvals/route.ts(79,18): error TS2551: Property 'Notification' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'notification'?
+app/api/auth/signup/route.ts(13,39): error TS2551: Property 'User' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'user'?
+app/api/auth/signup/route.ts(28,31): error TS2551: Property 'User' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'user'?
+app/api/comments/route.ts(20,34): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/comments/route.ts(42,34): error TS2551: Property 'Comment' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'comment'?
+app/api/comments/route.ts(69,20): error TS2551: Property 'Notification' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'notification'?
+app/api/contents/[id]/route.ts(19,34): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/contents/[id]/route.ts(102,42): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/contents/[id]/route.ts(116,34): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/contents/[id]/route.ts(164,42): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/contents/[id]/route.ts(178,18): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/contents/route.ts(44,35): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/contents/route.ts(174,34): error TS2551: Property 'Content' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'content'?
+app/api/contents/route.ts(211,20): error TS2551: Property 'Notification' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'notification'?
+app/api/debug-users/route.ts(25,32): error TS2551: Property 'User' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'user'?
+app/api/debug-users/route.ts(47,46): error TS7006: Parameter 'u' implicitly has an 'any' type.
+app/api/notifications/route.ts(16,40): error TS2551: Property 'Notification' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'notification'?
+app/api/notifications/route.ts(63,18): error TS2551: Property 'Notification' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'notification'?
+app/api/users/route.ts(64,32): error TS2551: Property 'User' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'. Did you mean 'user'?
+app/api/users/route.ts(86,46): error TS7006: Parameter 'u' implicitly has an 'any' type.
+exit_code=2

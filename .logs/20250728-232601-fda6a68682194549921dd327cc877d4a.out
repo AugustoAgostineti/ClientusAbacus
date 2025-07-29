@@ -1,0 +1,618 @@
+  ▲ Next.js 14.2.28
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 2.4s
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 764ms (272 modules)
+ GET /api/auth/csrf 200 in 1714ms
+ POST /api/auth/callback/credentials 302 in 953ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.5s (854 modules)
+ GET / 307 in 4413ms
+ ✓ Compiled in 982ms (311 modules)
+ ○ Compiling /dashboard/agency ...
+ ✓ Compiled /dashboard/agency in 1316ms (929 modules)
+ GET /dashboard/agency 200 in 1594ms
+ ○ Compiling /api/contents ...
+ ✓ Compiled /api/contents in 1048ms (614 modules)
+ GET /api/auth/session 200 in 1490ms
+ GET /api/contents 200 in 1507ms
+ GET /api/auth/session 200 in 57ms
+ GET /api/contents 200 in 89ms
+ ○ Compiling /dashboard/agency/contents/new ...
+ ✓ Compiled /dashboard/agency/contents/new in 3.1s (1376 modules)
+ GET /dashboard/agency 200 in 4628ms
+ GET /dashboard/agency/comments 200 in 4932ms
+ GET /dashboard/agency/calendar 200 in 4938ms
+ GET /dashboard/agency/contents 200 in 4954ms
+ GET /dashboard/agency/notifications 200 in 4952ms
+ GET /dashboard/agency/documents 200 in 4959ms
+ GET /dashboard/agency/contents/new 200 in 4935ms
+ GET /dashboard/agency/clients 200 in 4954ms
+ GET /dashboard/agency/contents/cmdndfiio000frzyhx6b58pnj 200 in 5187ms
+ GET /dashboard/agency/contents/cmdndfiim000drzyhxhyx60jm 200 in 5162ms
+ GET /dashboard/agency/contents/cmdndqjyz0003rzz8h04w80in 200 in 5172ms
+ GET /api/contents 200 in 210ms
+ GET /api/auth/session 200 in 330ms
+ GET /api/contents 200 in 278ms
+ ○ Compiling /api/users ...
+ ✓ Compiled /api/contents/[id] in 1538ms (839 modules)
+ ✓ Compiled (843 modules)
+ GET /api/contents? 200 in 2286ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+ GET /api/notifications 200 in 2400ms
+ GET /api/contents 200 in 2109ms
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 2016ms
+ GET /api/auth/session 200 in 2345ms
+ GET /api/contents? 200 in 135ms
+ GET /api/notifications 200 in 141ms
+ GET /api/contents 200 in 144ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 128ms
+ GET /api/auth/session 200 in 133ms
+ GET /api/contents 200 in 85ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 81ms
+ GET /api/auth/session 200 in 102ms
+ GET /api/contents/cmdndfiio000frzyhx6b58pnj 200 in 2610ms
+ GET /api/contents/cmdndfiim000drzyhxhyx60jm 200 in 2526ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 2508ms
+ ✓ Compiled /api/files/[...path] in 484ms (848 modules)
+ ✓ Compiled in 0ms (848 modules)
+ ✓ Compiled in 0ms (848 modules)
+ ✓ Compiled in 1ms (848 modules)
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+ GET /api/auth/session 200 in 1992ms
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 2033ms
+ GET /api/files/images/1753723568547_Captura_de_Tela_2025-07-28_a_s_11.24.20.png 200 in 2521ms
+ ✓ Compiled in 1ms (848 modules)
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 2087ms
+ GET /api/contents/cmdndfiio000frzyhx6b58pnj 200 in 2154ms
+ GET /api/contents/cmdndfiim000drzyhxhyx60jm 200 in 2155ms
+ GET /api/auth/session 200 in 1127ms
+ GET /api/auth/session 200 in 57ms
+ GET /api/auth/session 200 in 38ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 60ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 88ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 57ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 32ms
+ GET /dashboard/agency/contents 200 in 219ms
+ GET /api/auth/session 200 in 392ms
+ GET /dashboard/agency/clients 200 in 669ms
+ GET /dashboard/agency/comments 200 in 667ms
+ GET /dashboard/agency/contents/cmdndfiio000frzyhx6b58pnj 200 in 673ms
+ GET /dashboard/agency/documents 200 in 724ms
+ POST /api/auth/_log 200 in 553ms
+ POST /api/auth/_log 200 in 525ms
+ POST /api/auth/_log 200 in 474ms
+ GET /dashboard/agency/contents/cmdndfiim000drzyhxhyx60jm 200 in 715ms
+ GET /api/auth/session 200 in 592ms
+ GET /dashboard/agency/contents/cmdndqjyz0003rzz8h04w80in 200 in 737ms
+ GET /dashboard/agency/notifications 200 in 781ms
+ GET /dashboard/agency/contents/new 200 in 783ms
+ POST /api/auth/_log 200 in 471ms
+ POST /api/auth/_log 200 in 412ms
+ POST /api/auth/_log 200 in 366ms
+ POST /api/auth/_log 200 in 547ms
+ POST /api/auth/_log 200 in 481ms
+ POST /api/auth/_log 200 in 479ms
+ POST /api/auth/_log 200 in 472ms
+ POST /api/auth/_log 200 in 467ms
+ POST /api/auth/_log 200 in 456ms
+ POST /api/auth/_log 200 in 396ms
+ POST /api/auth/_log 200 in 394ms
+ POST /api/auth/_log 200 in 384ms
+ POST /api/auth/_log 200 in 383ms
+ GET /api/auth/session 200 in 423ms
+ POST /api/auth/_log 200 in 476ms
+ POST /api/auth/_log 200 in 463ms
+ GET /api/contents? 200 in 165ms
+ GET /api/auth/session 200 in 158ms
+ GET /api/contents 200 in 224ms
+ GET /api/auth/session 200 in 162ms
+ GET /api/contents? 200 in 192ms
+ GET /api/contents/cmdndfiim000drzyhxhyx60jm 200 in 297ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+ GET /api/notifications 200 in 283ms
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 264ms
+ GET /api/contents 200 in 264ms
+ GET /api/auth/session 200 in 149ms
+ GET /api/contents/cmdndfiio000frzyhx6b58pnj 200 in 180ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 181ms
+ GET /api/contents/cmdndfiim000drzyhxhyx60jm 200 in 148ms
+ GET /api/notifications 200 in 156ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 164ms
+ GET /api/auth/session 200 in 108ms
+ GET /api/contents/cmdndfiio000frzyhx6b58pnj 200 in 112ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 120ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 61ms
+ GET /api/auth/session 200 in 48ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 46ms
+ GET /api/auth/session 200 in 51ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 71ms
+ GET /api/auth/session 200 in 51ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 38ms
+ GET /api/auth/session 200 in 42ms
+ GET /api/auth/session 200 in 40ms
+ GET /api/auth/session 200 in 77ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 44ms
+ GET /api/auth/session 200 in 41ms
+ ○ Compiling /dashboard/agency/contents/[id]/edit ...
+ ✓ Compiled /dashboard/agency/contents/[id]/edit in 3.2s (1462 modules)
+ GET /dashboard/client/notifications 307 in 3794ms
+ GET /dashboard/client/documents 307 in 3826ms
+ GET /dashboard/client 307 in 3847ms
+ GET /dashboard/client/calendar 307 in 3838ms
+ GET /dashboard/client/comments 307 in 3807ms
+ GET /dashboard/client/approvals 307 in 3794ms
+ GET /dashboard/agency/contents/cmdndfiik000brzyhcxixkhja 200 in 3770ms
+ GET /dashboard/agency/contents/cmdndfiih0009rzyhux7fexge 200 in 3781ms
+ GET /dashboard/agency 200 in 238ms
+ GET /dashboard/agency 200 in 889ms
+ GET /dashboard/agency/contents/cmdndqjyz0003rzz8h04w80in/edit 200 in 4890ms
+ GET /dashboard/agency/contents/cmdndfiio000frzyhx6b58pnj/edit 200 in 4879ms
+ GET /dashboard/agency/contents/cmdndfiik000brzyhcxixkhja/edit 200 in 4876ms
+ GET /dashboard/agency/contents/cmdndfiih0009rzyhux7fexge/edit 200 in 4875ms
+ GET /dashboard/agency/contents/cmdndfiim000drzyhxhyx60jm/edit 200 in 4874ms
+ GET /dashboard/agency 200 in 374ms
+ GET /dashboard/agency 200 in 528ms
+ GET /api/contents/cmdndfiih0009rzyhux7fexge 200 in 436ms
+ GET /api/auth/session 200 in 540ms
+ GET /api/contents/cmdndfiik000brzyhcxixkhja 200 in 432ms
+ GET /api/contents 200 in 558ms
+ GET /api/contents/cmdndfiih0009rzyhux7fexge 200 in 505ms
+ GET /dashboard/agency 200 in 942ms
+ GET /api/auth/session 200 in 563ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 508ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 504ms
+ GET /api/contents/cmdndfiik000brzyhcxixkhja 200 in 464ms
+ GET /api/contents 200 in 509ms
+ GET /api/contents/cmdndfiim000drzyhxhyx60jm 200 in 347ms
+ GET /dashboard/agency 200 in 634ms
+ GET /api/auth/session 200 in 429ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 452ms
+ GET /api/contents/cmdndfiih0009rzyhux7fexge 200 in 464ms
+ GET /api/contents/cmdndqjyz0003rzz8h04w80in 200 in 391ms
+ GET /api/contents/cmdndfiio000frzyhx6b58pnj 200 in 502ms
+ GET /api/contents/cmdndfiik000brzyhcxixkhja 200 in 352ms
+ GET /api/contents/cmdndfiim000drzyhxhyx60jm 200 in 337ms
+ GET /api/contents 200 in 417ms
+ GET /api/auth/session 200 in 250ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 252ms
+ GET /api/contents/cmdndfiih0009rzyhux7fexge 200 in 229ms
+ GET /api/contents/cmdndfiio000frzyhx6b58pnj 200 in 190ms
+ GET /api/contents/cmdndfiik000brzyhcxixkhja 200 in 243ms
+ GET /api/contents 200 in 252ms
+ GET /api/auth/session 200 in 124ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 136ms
+ GET /api/contents 200 in 65ms
+ GET /api/auth/session 200 in 66ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 90ms
+ GET /api/contents 200 in 70ms
+ GET /api/auth/session 200 in 59ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 85ms
+ GET /api/contents 200 in 90ms
+ GET /api/auth/session 200 in 126ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 120ms
+ GET /api/contents 200 in 75ms
+ GET /api/auth/session 200 in 81ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 80ms
+ GET /api/contents 200 in 81ms
+ GET /api/auth/session 200 in 70ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 57ms
+ GET /api/contents 200 in 62ms
+ GET /api/auth/session 200 in 57ms
+✅ API /users: Session found: {
+  userId: 'cmdndfhjy0000rzyhlxc8h2lg',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'john@doe.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 4 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 60ms
+ GET /api/contents 200 in 60ms
+ GET /api/auth/session 200 in 50ms
+ GET /api/contents 200 in 45ms
+ GET /api/auth/session 200 in 41ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 100ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 46ms
+ GET /api/auth/session 200 in 38ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 64ms
+ GET /api/auth/session 200 in 37ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 63ms
+ GET /api/auth/session 200 in 44ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 40ms
+ GET /api/auth/session 200 in 43ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 77ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 66ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 38ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 70ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 65ms
+ GET /api/auth/session 200 in 37ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 34ms
+ GET / 307 in 56ms
+ ○ Compiling /auth/signin ...
+ ✓ Compiled /auth/signin in 1342ms (1481 modules)
+ GET /auth/signin 200 in 1500ms
+ GET / 307 in 76ms
+ GET /auth/signin 200 in 50ms
+ GET /api/auth/session 200 in 83ms
+ GET /api/auth/session 200 in 34ms
+[?25h

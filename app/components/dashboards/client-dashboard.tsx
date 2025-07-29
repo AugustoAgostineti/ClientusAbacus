@@ -11,7 +11,6 @@ import {
   FileImage, 
   Clock, 
   CheckCircle, 
-  AlertCircle, 
   TrendingUp,
   Eye
 } from 'lucide-react'
@@ -228,23 +227,7 @@ export function ClientDashboard() {
           </CardContent>
         </Card>
 
-        {/* Tips for Clients */}
-        <Card className="border-green-200 bg-green-50">
-          <CardHeader>
-            <CardTitle className="text-green-900 flex items-center">
-              <AlertCircle className="mr-2 h-5 w-5" />
-              Dicas para Aprovação
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-sm text-green-800">
-              <li>• Revise cuidadosamente os conteúdos antes de aprovar</li>
-              <li>• Use os comentários para dar feedback específico sobre alterações</li>
-              <li>• Verifique se as legendas estão alinhadas com sua marca</li>
-              <li>• Confirme se as datas de publicação estão corretas</li>
-            </ul>
-          </CardContent>
-        </Card>
+
       </div>
     </DashboardLayout>
   )

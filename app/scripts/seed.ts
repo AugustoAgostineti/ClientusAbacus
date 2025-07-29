@@ -6,17 +6,22 @@ const prisma = new PrismaClient()
 
 async function main() {
   try {
-    console.log('🌱 Starting database seed...')
+    console.log('🌱 Starting Supabase database seed...')
 
-    // Clean existing data
+    // Clean existing data (in correct order for foreign key constraints)
+    console.log('🧹 Cleaning existing data...')
     await prisma.notification.deleteMany()
+    await prisma.contentHistory.deleteMany()
     await prisma.comment.deleteMany()
     await prisma.approval.deleteMany()
     await prisma.document.deleteMany()
     await prisma.content.deleteMany()
+    await prisma.session.deleteMany()
+    await prisma.account.deleteMany()
+    await prisma.verificationToken.deleteMany()
     await prisma.user.deleteMany()
 
-    console.log('🧹 Cleaned existing data')
+    console.log('✅ Cleaned existing data')
 
     // Create users
     const hashedPassword = await bcrypt.hash('johndoe123', 12)

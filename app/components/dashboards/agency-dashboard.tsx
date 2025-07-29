@@ -12,7 +12,6 @@ import {
   Users, 
   Clock, 
   CheckCircle, 
-  AlertCircle, 
   TrendingUp,
   Plus
 } from 'lucide-react'
@@ -95,22 +94,22 @@ export function AgencyDashboard() {
         {/* Quick Actions */}
         <div className="flex flex-wrap gap-4">
           <Link href="/dashboard/agency/contents/new">
-            <Button className="bg-blue-600 hover:bg-blue-700">
+            <button className="inline-flex items-center justify-center px-4 py-2 font-medium rounded-xl bg-gradient-to-r from-[#5C7CFA] to-[#7C94FB] text-white border border-white/40 hover:from-[#4C6CF9] hover:to-[#6C84FB] hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(92,124,250,0.25)] active:scale-[0.98] shadow-[0_4px_16px_rgba(92,124,250,0.15)] backdrop-blur-md transition-all duration-250 ease-out">
               <Plus className="mr-2 h-4 w-4" />
               Criar Conteúdo
-            </Button>
+            </button>
           </Link>
           <Link href="/dashboard/agency/clients">
-            <Button variant="outline">
+            <button className="inline-flex items-center justify-center px-4 py-2 font-medium rounded-xl bg-white/50 backdrop-blur-sm border border-white/40 text-gray-700 hover:bg-white/70 hover:scale-[1.01] hover:shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition-all duration-250 ease-out">
               <Users className="mr-2 h-4 w-4" />
               Gerenciar Clientes
-            </Button>
+            </button>
           </Link>
           <Link href="/dashboard/agency/calendar">
-            <Button variant="outline">
+            <button className="inline-flex items-center justify-center px-4 py-2 font-medium rounded-xl bg-white/50 backdrop-blur-sm border border-white/40 text-gray-700 hover:bg-white/70 hover:scale-[1.01] hover:shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition-all duration-250 ease-out">
               <Clock className="mr-2 h-4 w-4" />
               Ver Calendário
-            </Button>
+            </button>
           </Link>
         </div>
 
@@ -119,56 +118,54 @@ export function AgencyDashboard() {
           {stats.map((stat) => {
             const Icon = stat.icon
             return (
-              <Card key={stat.title} className="hover:shadow-md transition-shadow">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600">
+              <div key={stat.title} className="bg-white/70 backdrop-blur-md border border-white/40 rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:scale-[1.01] transition-all duration-250 ease-out">
+                <div className="flex flex-row items-center justify-between space-y-0 pb-2 p-6">
+                  <h3 className="text-sm font-medium text-gray-600">
                     {stat.title}
-                  </CardTitle>
-                  <Icon className={`h-4 w-4 ${stat.color}`} />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold text-gray-900">
+                  </h3>
+                  <Icon className="h-5 w-5 text-[#5C7CFA]" />
+                </div>
+                <div className="px-6 pb-6">
+                  <div className="text-2xl font-bold text-gray-900 mb-1">
                     {stat.value}
                   </div>
-                  <div className="flex items-center mt-1">
+                  <div className="flex items-center">
                     <TrendingUp className={`h-3 w-3 mr-1 ${
-                      stat.trend === 'up' ? 'text-green-500' : 'text-red-500'
+                      stat.trend === 'up' ? 'text-[#B4F461]' : 'text-red-500'
                     }`} />
-                    <span className={`text-xs ${
-                      stat.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                    <span className={`text-xs font-medium ${
+                      stat.trend === 'up' ? 'text-[#B4F461]' : 'text-red-600'
                     }`}>
                       {stat.change}
                     </span>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             )
           })}
         </div>
 
         {/* Recent Content */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center justify-between">
-              <span>Conteúdos Recentes</span>
+        <div className="bg-white/70 backdrop-blur-md border border-white/40 rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all duration-250">
+          <div className="p-6">
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-lg font-bold text-gray-900">Conteúdos Recentes</h2>
               <Link href="/dashboard/agency/contents">
-                <Button variant="ghost" size="sm">
+                <button className="px-3 py-1 text-sm font-medium rounded-xl bg-white/50 backdrop-blur-sm border border-white/40 text-gray-700 hover:bg-white/70 hover:scale-[1.01] hover:shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition-all duration-250 ease-out">
                   Ver todos
-                </Button>
+                </button>
               </Link>
-            </CardTitle>
-            <CardDescription>
+            </div>
+            <p className="text-gray-600 mb-6">
               Últimos conteúdos criados e seus status de aprovação
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
+            </p>
             <div className="space-y-4">
               {recentContent.map((content) => {
                 const status = getStatusBadge(content.status)
                 return (
                   <div
                     key={content.id}
-                    className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex items-center justify-between p-4 bg-white/50 backdrop-blur-sm border border-white/40 rounded-xl hover:bg-white/70 hover:scale-[1.01] transition-all duration-250 ease-out"
                   >
                     <div className="flex-1">
                       <h4 className="font-medium text-gray-900">
@@ -179,38 +176,23 @@ export function AgencyDashboard() {
                       </p>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Badge variant={status.variant}>
+                      <span className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-[#D8C8F7] to-[#E8D8FF] text-[#5C7CFA] border border-white/40 backdrop-blur-sm">
                         {status.label}
-                      </Badge>
+                      </span>
                       <Link href={`/dashboard/agency/contents/${content.id}`}>
-                        <Button variant="ghost" size="sm">
+                        <button className="px-3 py-1 text-sm font-medium rounded-xl bg-white/50 backdrop-blur-sm border border-white/40 text-gray-700 hover:bg-white/70 hover:scale-[1.01] hover:shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition-all duration-250 ease-out">
                           Ver
-                        </Button>
+                        </button>
                       </Link>
                     </div>
                   </div>
                 )
               })}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        {/* Quick Tips */}
-        <Card className="border-blue-200 bg-blue-50">
-          <CardHeader>
-            <CardTitle className="text-blue-900 flex items-center">
-              <AlertCircle className="mr-2 h-5 w-5" />
-              Dicas Rápidas
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-sm text-blue-800">
-              <li>• Use o calendário para planejar suas publicações com antecedência</li>
-              <li>• Mantenha os clientes informados com comentários nas aprovações</li>
-              <li>• Configure notificações para não perder nenhuma aprovação</li>
-            </ul>
-          </CardContent>
-        </Card>
+
       </div>
     </DashboardLayout>
   )

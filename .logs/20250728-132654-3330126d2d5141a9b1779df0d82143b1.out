@@ -1,0 +1,131 @@
+  ▲ Next.js 14.2.28
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 1505ms
+ ✓ Compiled /api/auth/[...nextauth] in 433ms (272 modules)
+ GET /api/auth/csrf 200 in 947ms
+ POST /api/auth/callback/credentials 302 in 466ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1749ms (850 modules)
+ GET / 307 in 2178ms
+ ✓ Compiled in 434ms (309 modules)
+ ○ Compiling /dashboard/agency ...
+ ✓ Compiled /dashboard/agency in 533ms (931 modules)
+ GET /dashboard/agency 200 in 691ms
+ GET /api/auth/session 200 in 46ms
+ GET /api/auth/session 200 in 23ms
+ ○ Compiling /dashboard/agency/contents ...
+ ✓ Compiled /dashboard/agency/contents in 2.2s (1204 modules)
+ GET /dashboard/agency 200 in 2563ms
+ GET /dashboard/agency/clients 200 in 2586ms
+ GET /dashboard/agency/comments 200 in 2568ms
+ GET /dashboard/agency/notifications 200 in 2578ms
+ GET /dashboard/agency/contents/new 200 in 2571ms
+ GET /dashboard/agency/calendar 200 in 2581ms
+ GET /dashboard/agency/documents 200 in 2573ms
+ GET /dashboard/agency/contents 200 in 2572ms
+ GET /dashboard/agency/contents/1 200 in 3393ms
+ GET /dashboard/agency/contents/3 200 in 3385ms
+ GET /dashboard/agency/contents/2 200 in 3376ms
+ GET /api/auth/session 200 in 158ms
+ ○ Compiling /api/contents/[id] ...
+ ✓ Compiled /api/contents/[id] in 749ms (764 modules)
+ ✓ Compiled (770 modules)
+ GET /api/users?role=CLIENT 200 in 1411ms
+ GET /api/auth/session 200 in 1264ms
+ GET /api/contents 200 in 1321ms
+ GET /api/notifications 200 in 1322ms
+ GET /api/contents? 200 in 1339ms
+ GET /api/users?role=CLIENT 200 in 37ms
+ GET /api/auth/session 200 in 48ms
+ GET /api/contents 200 in 66ms
+ GET /api/notifications 200 in 66ms
+ GET /api/contents? 200 in 69ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/contents 200 in 40ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/contents 200 in 35ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/contents/1 404 in 1536ms
+ GET /api/contents/3 404 in 1486ms
+ GET /api/contents/2 404 in 1503ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/contents/1 404 in 43ms
+ GET /api/contents/2 404 in 43ms
+ GET /api/contents/3 404 in 50ms
+ GET /api/auth/session 200 in 41ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 39ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 20ms
+ GET /dashboard/agency/contents/cmdn4ro9o000fsdyei2hhna7z 200 in 157ms
+ GET /dashboard/agency/contents/cmdn4ro9h0009sdye49bg1mvj 200 in 142ms
+ GET /dashboard/agency/contents/cmdn4ro9m000dsdyewnsnp4ol 200 in 150ms
+ GET /dashboard/agency/contents/cmdn4ro9k000bsdye2n01hppq 200 in 151ms
+ GET /api/contents/cmdn4ro9o000fsdyei2hhna7z 200 in 62ms
+ GET /api/contents/cmdn4ro9m000dsdyewnsnp4ol 200 in 61ms
+ GET /api/auth/session 200 in 64ms
+ GET /api/contents/cmdn4ro9k000bsdye2n01hppq 200 in 44ms
+ GET /api/contents/cmdn4ro9h0009sdye49bg1mvj 200 in 45ms
+ GET /api/contents/cmdn4ro9m000dsdyewnsnp4ol 200 in 46ms
+ GET /api/contents/cmdn4ro9o000fsdyei2hhna7z 200 in 68ms
+ GET /api/auth/session 200 in 59ms
+ GET /api/contents/cmdn4ro9h0009sdye49bg1mvj 200 in 41ms
+ GET /api/contents/cmdn4ro9k000bsdye2n01hppq 200 in 57ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 40ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 39ms
+ ✓ Compiled in 961ms (1248 modules)
+ ✓ Compiled in 650ms (1248 modules)
+ ✓ Compiled in 588ms (1248 modules)
+ ✓ Compiled in 307ms (478 modules)
+ ✓ Compiled in 351ms (478 modules)
+ ✓ Compiled in 335ms (478 modules)
+ ✓ Compiled in 316ms (478 modules)
+[?25h

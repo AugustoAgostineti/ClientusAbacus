@@ -1,0 +1,244 @@
+sending incremental file list
+components.json
+debug-users.js
+next-env.d.ts
+next.config.js
+package.json
+postcss.config.js
+server.log
+tailwind.config.ts
+test-api.js
+test-constraint-error.js
+test-content-creation.js
+test-create-content.js
+test-db.js
+test-image.png
+tsconfig.json
+tsconfig.tsbuildinfo
+app/
+app/globals.css
+app/layout.tsx
+app/page.tsx
+app/api/
+app/api/approvals/
+app/api/approvals/route.ts
+app/api/auth/
+app/api/auth/[...nextauth]/
+app/api/auth/[...nextauth]/route.ts
+app/api/auth/signup/
+app/api/auth/signup/route.ts
+app/api/comments/
+app/api/comments/route.ts
+app/api/contents/
+app/api/contents/route.ts
+app/api/contents/[id]/
+app/api/contents/[id]/route.ts
+app/api/debug-users/
+app/api/debug-users/route.ts
+app/api/files/
+app/api/files/[...path]/
+app/api/files/[...path]/route.ts
+app/api/notifications/
+app/api/notifications/route.ts
+app/api/upload/
+app/api/upload/route.ts
+app/api/users/
+app/api/users/route.ts
+app/auth/
+app/auth/signin/
+app/auth/signin/page.tsx
+app/dashboard/
+app/dashboard/agency/
+app/dashboard/agency/page.tsx
+app/dashboard/agency/calendar/
+app/dashboard/agency/calendar/page.tsx
+app/dashboard/agency/clients/
+app/dashboard/agency/clients/page.tsx
+app/dashboard/agency/comments/
+app/dashboard/agency/comments/page.tsx
+app/dashboard/agency/contents/
+app/dashboard/agency/contents/page.tsx
+app/dashboard/agency/contents/[id]/
+app/dashboard/agency/contents/[id]/page.tsx
+app/dashboard/agency/contents/new/
+app/dashboard/agency/contents/new/page.tsx
+app/dashboard/agency/documents/
+app/dashboard/agency/documents/page.tsx
+app/dashboard/agency/notifications/
+app/dashboard/agency/notifications/page.tsx
+app/dashboard/client/
+app/dashboard/client/page.tsx
+app/dashboard/client/approvals/
+app/dashboard/client/approvals/page.tsx
+app/dashboard/client/calendar/
+app/dashboard/client/calendar/page.tsx
+app/dashboard/client/comments/
+app/dashboard/client/comments/page.tsx
+app/dashboard/client/documents/
+app/dashboard/client/documents/page.tsx
+app/dashboard/client/notifications/
+app/dashboard/client/notifications/page.tsx
+components/
+components/providers.tsx
+components/theme-provider.tsx
+components/auth/
+components/auth/login-form.tsx
+components/dashboards/
+components/dashboards/agency-dashboard.tsx
+components/dashboards/client-dashboard.tsx
+components/layout/
+components/layout/dashboard-layout.tsx
+components/layout/sidebar.tsx
+components/modals/
+components/modals/add-client-modal.tsx
+components/pages/
+components/pages/agency-calendar.tsx
+components/pages/agency-clients.tsx
+components/pages/agency-comments.tsx
+components/pages/agency-contents.tsx
+components/pages/agency-documents.tsx
+components/pages/agency-notifications.tsx
+components/pages/client-approvals.tsx
+components/pages/client-calendar.tsx
+components/pages/client-comments.tsx
+components/pages/client-documents.tsx
+components/pages/client-notifications.tsx
+components/pages/content-detail.tsx
+components/pages/create-content.tsx
+components/ui/
+components/ui/accordion.tsx
+components/ui/alert-dialog.tsx
+components/ui/alert.tsx
+components/ui/aspect-ratio.tsx
+components/ui/avatar.tsx
+components/ui/badge.tsx
+components/ui/breadcrumb.tsx
+components/ui/button.tsx
+components/ui/calendar.tsx
+components/ui/card.tsx
+components/ui/carousel.tsx
+components/ui/checkbox.tsx
+components/ui/collapsible.tsx
+components/ui/command.tsx
+components/ui/context-menu.tsx
+components/ui/date-range-picker.tsx
+components/ui/dialog.tsx
+components/ui/drawer.tsx
+components/ui/dropdown-menu.tsx
+components/ui/form.tsx
+components/ui/hover-card.tsx
+components/ui/input-otp.tsx
+components/ui/input.tsx
+components/ui/label.tsx
+components/ui/media-upload.tsx
+components/ui/menubar.tsx
+components/ui/navigation-menu.tsx
+components/ui/pagination.tsx
+components/ui/popover.tsx
+components/ui/progress.tsx
+components/ui/radio-group.tsx
+components/ui/resizable.tsx
+components/ui/scroll-area.tsx
+components/ui/select.tsx
+components/ui/separator.tsx
+components/ui/sheet.tsx
+components/ui/skeleton.tsx
+components/ui/slider.tsx
+components/ui/sonner.tsx
+components/ui/switch.tsx
+components/ui/table.tsx
+components/ui/tabs.tsx
+components/ui/task-card.tsx
+components/ui/textarea.tsx
+components/ui/toast.tsx
+components/ui/toaster.tsx
+components/ui/toggle-group.tsx
+components/ui/toggle.tsx
+components/ui/tooltip.tsx
+components/ui/use-toast.ts
+hooks/
+hooks/use-toast.ts
+lib/
+lib/auth.ts
+lib/db.ts
+lib/types.ts
+lib/utils.ts
+prisma/
+prisma/schema.prisma
+scripts/
+scripts/seed.ts
+types/
+types/next-auth.d.ts
+uploads/
+uploads/images/
+uploads/images/1753717684206_Captura_de_Tela_2025-07-28_a_s_11.24.20.png
+uploads/images/1753717726695_Captura_de_Tela_2025-07-28_a_s_11.24.15.png
+uploads/images/1753718332806_Captura_de_Tela_2025-07-28_a_s_11.24.20.png
+uploads/images/1753719027672_Captura_de_Tela_2025-07-28_a_s_12.59.13.png
+uploads/images/1753720000308_PRINT.png
+uploads/images/1753720504661_Captura_de_Tela_2025-07-28_a_s_11.24.20.png
+
+sent 2,181,430 bytes  received 2,721 bytes  4,368,302.00 bytes/sec
+total size is 2,170,159  speedup is 0.99
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+  ▲ Next.js 14.2.28
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/19) ...
+   Generating static pages (4/19) 
+   Generating static pages (9/19) 
+   Generating static pages (14/19) 
+ ✓ Generating static pages (19/19)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ƒ /                                    138 B          87.3 kB
+├ ○ /_not-found                          873 B          88.1 kB
+├ ƒ /api/approvals                       0 B                0 B
+├ ƒ /api/auth/[...nextauth]              0 B                0 B
+├ ƒ /api/auth/signup                     0 B                0 B
+├ ƒ /api/comments                        0 B                0 B
+├ ƒ /api/contents                        0 B                0 B
+├ ƒ /api/contents/[id]                   0 B                0 B
+├ ƒ /api/debug-users                     0 B                0 B
+├ ƒ /api/files/[...path]                 0 B                0 B
+├ ƒ /api/notifications                   0 B                0 B
+├ ƒ /api/upload                          0 B                0 B
+├ ƒ /api/users                           0 B                0 B
+├ ƒ /auth/signin                         8.41 kB         113 kB
+├ ƒ /dashboard/agency                    3.87 kB         118 kB
+├ ƒ /dashboard/agency/calendar           4.02 kB         118 kB
+├ ƒ /dashboard/agency/clients            7.22 kB         138 kB
+├ ƒ /dashboard/agency/comments           3.86 kB         118 kB
+├ ƒ /dashboard/agency/contents           5.29 kB         149 kB
+├ ƒ /dashboard/agency/contents/[id]      3.09 kB         126 kB
+├ ƒ /dashboard/agency/contents/new       9.17 kB         153 kB
+├ ƒ /dashboard/agency/documents          4.59 kB         119 kB
+├ ƒ /dashboard/agency/notifications      4.19 kB         118 kB
+├ ƒ /dashboard/client                    4.09 kB         118 kB
+├ ƒ /dashboard/client/approvals          2.62 kB         125 kB
+├ ƒ /dashboard/client/calendar           4.23 kB         118 kB
+├ ƒ /dashboard/client/comments           4.9 kB          119 kB
+├ ƒ /dashboard/client/documents          4.74 kB         119 kB
+└ ƒ /dashboard/client/notifications      4.1 kB          118 kB
++ First Load JS shared by all            87.2 kB
+  ├ chunks/117-826c616a6a7da447.js       31.6 kB
+  ├ chunks/fd9d1056-b6bd4111191f2b98.js  53.6 kB
+  └ other shared chunks (total)          1.96 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+Successfully built app artifact

@@ -1,0 +1,10 @@
+components/design-system/components/modal/liquid-modal.tsx(74,7): error TS2322: Type '{ ({ open, onOpenChange, children, size, backdrop, rounded, showCloseButton, closeOnBackdropClick, closeOnEscape, className, ...props }: LiquidModalProps): ReactPortal | null; displayName: string | undefined; }' is not assignable to type 'FC<LiquidModalProps>'.
+  Type 'ReactPortal | null' is not assignable to type 'ReactNode'.
+    Type 'ReactPortal' is not assignable to type 'ReactNode'.
+      Type 'import("/opt/hostedapp/node/root/app/node_modules/@types/react-dom/node_modules/@types/react/index").ReactPortal' is not assignable to type 'React.ReactPortal'.
+        Types of property 'children' are incompatible.
+          Type 'import("/opt/hostedapp/node/root/app/node_modules/@types/react-dom/node_modules/@types/react/index").ReactNode' is not assignable to type 'React.ReactNode'.
+            Type 'bigint' is not assignable to type 'ReactNode'.
+components/design-system/components/modal/liquid-modal.tsx(134,5): error TS2345: Argument of type 'Element' is not assignable to parameter of type 'ReactNode'.
+  Property 'children' is missing in type 'ReactElement<any, any>' but required in type 'ReactPortal'.
+exit_code=2

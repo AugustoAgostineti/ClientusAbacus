@@ -1,0 +1,4 @@
+ ⨯ Error: [next-auth]: `useSession` must be wrapped in a <SessionProvider />
+    at useSession (/home/ubuntu/social_media_approval_app/app/.next/server/vendor-chunks/next-auth.js:489:11)
+    at AgencyDashboard (/home/ubuntu/social_media_approval_app/app/.next/server/app/dashboard/agency/page.js:343:90)
+digest: "65021696"

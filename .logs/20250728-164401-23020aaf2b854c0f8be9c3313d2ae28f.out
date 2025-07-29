@@ -1,0 +1,15 @@
+  ▲ Next.js 14.2.28
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 1558ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.3s (850 modules)
+ GET / 307 in 2666ms
+ ✓ Compiled in 567ms (311 modules)
+ ✓ Compiled /api/auth/[...nextauth] in 279ms (543 modules)
+ GET /api/auth/providers 200 in 703ms
+[?25h

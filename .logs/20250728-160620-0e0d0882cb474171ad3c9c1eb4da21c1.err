@@ -1,0 +1,162 @@
+❌ POST /api/contents: Error creating content: PrismaClientKnownRequestError: 
+Invalid `_lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create()` invocation in
+/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:83
+
+  409     });
+  410 }
+  411 console.log("✅ POST /api/contents: All validations passed, creating content...");
+→ 412 const content = await _lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create(
+Foreign key constraint violated on the constraint: `contents_creatorId_fkey`
+    at zn.handleRequestError (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:7459)
+    at zn.handleAndLogRequestError (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:6784)
+    at zn.request (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:6491)
+    at async l (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:133:9778)
+    at async POST (/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:25)
+    at async /opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:818:17)
+    at async /opt/hostedapp/node/root/app/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/opt/hostedapp/node/root/app/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:178:21)
+    at async handleRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:355:24)
+    at async requestHandlerImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:379:13)
+    at async Server.requestListener (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  code: 'P2003',
+  meta: { modelName: 'Content', constraint: 'contents_creatorId_fkey' },
+  clientVersion: '6.7.0'
+}
+❌ POST /api/contents: Error details: {
+  name: 'PrismaClientKnownRequestError',
+  message: '\n' +
+    'Invalid `_lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create()` invocation in\n' +
+    '/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:83\n' +
+    '\n' +
+    '  409     });\n' +
+    '  410 }\n' +
+    '  411 console.log("✅ POST /api/contents: All validations passed, creating content...");\n' +
+    '→ 412 const content = await _lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create(\n' +
+    'Foreign key constraint violated on the constraint: `contents_creatorId_fkey`',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `_lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create()` invocation in\n' +
+    '/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:83\n' +
+    '\n' +
+    '  409     });\n' +
+    '  410 }\n' +
+    '  411 console.log("✅ POST /api/contents: All validations passed, creating content...");\n' +
+    '→ 412 const content = await _lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create(\n' +
+    'Foreign key constraint violated on the constraint: `contents_creatorId_fkey`\n' +
+    '    at zn.handleRequestError (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:7459)\n' +
+    '    at zn.handleAndLogRequestError (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:6784)\n' +
+    '    at zn.request (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:6491)\n' +
+    '    at async l (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:133:9778)\n' +
+    '    at async POST (/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:25)\n' +
+    '    at async /opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228\n' +
+    '    at async eT.execute (/opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)\n' +
+    '    at async eT.handle (/opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)\n' +
+    '    at async doRender (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1366:42)\n' +
+    '    at async cacheEntry.responseCache.get.routeKind (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1588:28)\n' +
+    '    at async DevServer.renderToResponseWithComponentsImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1496:28)\n' +
+    '    at async DevServer.renderPageComponent (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1924:24)\n' +
+    '    at async DevServer.renderToResponseImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1962:32)\n' +
+    '    at async DevServer.pipeImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:922:25)\n' +
+    '    at async NextNodeServer.handleCatchallRenderRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/next-server.js:272:17)\n' +
+    '    at async DevServer.handleRequestImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:818:17)\n' +
+    '    at async /opt/hostedapp/node/root/app/node_modules/next/dist/server/dev/next-dev-server.js:339:20\n' +
+    '    at async Span.traceAsyncFn (/opt/hostedapp/node/root/app/node_modules/next/dist/trace/trace.js:154:20)\n' +
+    '    at async DevServer.handleRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/dev/next-dev-server.js:336:24)\n' +
+    '    at async invokeRender (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:178:21)\n' +
+    '    at async handleRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:355:24)\n' +
+    '    at async requestHandlerImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:379:13)\n' +
+    '    at async Server.requestListener (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/start-server.js:141:13)',
+  code: 'P2003'
+}
+❌ POST /api/contents: Error creating content: PrismaClientKnownRequestError: 
+Invalid `_lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create()` invocation in
+/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:83
+
+  409     });
+  410 }
+  411 console.log("✅ POST /api/contents: All validations passed, creating content...");
+→ 412 const content = await _lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create(
+Foreign key constraint violated on the constraint: `contents_creatorId_fkey`
+    at zn.handleRequestError (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:7459)
+    at zn.handleAndLogRequestError (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:6784)
+    at zn.request (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:6491)
+    at async l (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:133:9778)
+    at async POST (/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:25)
+    at async /opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:818:17)
+    at async /opt/hostedapp/node/root/app/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/opt/hostedapp/node/root/app/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:178:21)
+    at async handleRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:355:24)
+    at async requestHandlerImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:379:13)
+    at async Server.requestListener (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  code: 'P2003',
+  meta: { modelName: 'Content', constraint: 'contents_creatorId_fkey' },
+  clientVersion: '6.7.0'
+}
+❌ POST /api/contents: Error details: {
+  name: 'PrismaClientKnownRequestError',
+  message: '\n' +
+    'Invalid `_lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create()` invocation in\n' +
+    '/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:83\n' +
+    '\n' +
+    '  409     });\n' +
+    '  410 }\n' +
+    '  411 console.log("✅ POST /api/contents: All validations passed, creating content...");\n' +
+    '→ 412 const content = await _lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create(\n' +
+    'Foreign key constraint violated on the constraint: `contents_creatorId_fkey`',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `_lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create()` invocation in\n' +
+    '/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:83\n' +
+    '\n' +
+    '  409     });\n' +
+    '  410 }\n' +
+    '  411 console.log("✅ POST /api/contents: All validations passed, creating content...");\n' +
+    '→ 412 const content = await _lib_db__WEBPACK_IMPORTED_MODULE_3__.prisma.content.create(\n' +
+    'Foreign key constraint violated on the constraint: `contents_creatorId_fkey`\n' +
+    '    at zn.handleRequestError (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:7459)\n' +
+    '    at zn.handleAndLogRequestError (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:6784)\n' +
+    '    at zn.request (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:124:6491)\n' +
+    '    at async l (/opt/hostedapp/node/root/app/node_modules/.prisma/client/runtime/library.js:133:9778)\n' +
+    '    at async POST (/home/ubuntu/social_media_approval_app/app/.next/server/app/api/contents/route.js:412:25)\n' +
+    '    at async /opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228\n' +
+    '    at async eT.execute (/opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)\n' +
+    '    at async eT.handle (/opt/hostedapp/node/root/app/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)\n' +
+    '    at async doRender (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1366:42)\n' +
+    '    at async cacheEntry.responseCache.get.routeKind (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1588:28)\n' +
+    '    at async DevServer.renderToResponseWithComponentsImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1496:28)\n' +
+    '    at async DevServer.renderPageComponent (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1924:24)\n' +
+    '    at async DevServer.renderToResponseImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:1962:32)\n' +
+    '    at async DevServer.pipeImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:922:25)\n' +
+    '    at async NextNodeServer.handleCatchallRenderRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/next-server.js:272:17)\n' +
+    '    at async DevServer.handleRequestImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/base-server.js:818:17)\n' +
+    '    at async /opt/hostedapp/node/root/app/node_modules/next/dist/server/dev/next-dev-server.js:339:20\n' +
+    '    at async Span.traceAsyncFn (/opt/hostedapp/node/root/app/node_modules/next/dist/trace/trace.js:154:20)\n' +
+    '    at async DevServer.handleRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/dev/next-dev-server.js:336:24)\n' +
+    '    at async invokeRender (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:178:21)\n' +
+    '    at async handleRequest (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:355:24)\n' +
+    '    at async requestHandlerImpl (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/router-server.js:379:13)\n' +
+    '    at async Server.requestListener (/opt/hostedapp/node/root/app/node_modules/next/dist/server/lib/start-server.js:141:13)',
+  code: 'P2003'
+}

@@ -1,0 +1,19 @@
+ ⨯ ./components/pages/content-detail.tsx
+Error: 
+  [31mx[0m Unexpected token `DashboardLayout`. Expected jsx identifier
+     ,-[[36;1;4m/home/ubuntu/social_media_approval_app/app/components/pages/content-detail.tsx[0m:153:1]
+ [2m153[0m |   const StatusIcon = status.icon
+ [2m154[0m | 
+ [2m155[0m |   return (
+ [2m156[0m |     <DashboardLayout
+     : [31;1m     ^^^^^^^^^^^^^^^[0m
+ [2m157[0m |       title={showHistory ? `Histórico - ${content.title}` : content.title}
+ [2m158[0m |       description={showHistory ? "Visualize o histórico de alterações do conteúdo" : "Visualize e gerencie os detalhes do conteúdo"}
+ [2m159[0m |     >
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/pages/content-detail.tsx

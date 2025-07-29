@@ -1,8 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+/* Liquid Glass Design System - Global Background */
 @layer base {
+  body {
+    background: linear-gradient(135deg, 
+      #f8fafc 0%, 
+      #e2e8f0 25%, 
+      #cbd5e1 50%, 
+      #94a3b8 75%, 
+      #64748b 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -33,6 +45,14 @@
     --ring: 222.2 84% 4.9%;
  
     --radius: 0.5rem;
+
+    /* Liquid Glass Custom Properties */
+    --glass-bg-light: rgba(255, 255, 255, 0.7);
+    --glass-bg-medium: rgba(255, 255, 255, 0.5);
+    --glass-bg-dark: rgba(255, 255, 255, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --glass-blur: 12px;
   }
  
   .dark {

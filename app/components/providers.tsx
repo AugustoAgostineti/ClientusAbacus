@@ -8,7 +8,11 @@ import { Toaster as SonnerToaster } from './ui/sonner'
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <SessionProvider>
+    <SessionProvider
+      basePath="/api/auth"
+      refetchInterval={0}
+      refetchOnWindowFocus={false}
+    >
       <ThemeProvider
         attribute="class"
         defaultTheme="light"

@@ -1,0 +1,5 @@
+components/pages/agency-comments.tsx(45,39): error TS7006: Parameter 'a' implicitly has an 'any' type.
+components/pages/agency-comments.tsx(45,42): error TS7006: Parameter 'b' implicitly has an 'any' type.
+components/pages/client-comments.tsx(51,39): error TS7006: Parameter 'a' implicitly has an 'any' type.
+components/pages/client-comments.tsx(51,42): error TS7006: Parameter 'b' implicitly has an 'any' type.
+exit_code=2

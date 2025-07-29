@@ -1,0 +1,214 @@
+  ▲ Next.js 14.2.28
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 1710ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.2s (850 modules)
+ GET / 307 in 2703ms
+ ✓ Compiled in 507ms (311 modules)
+ ○ Compiling /auth/signin ...
+ ✓ Compiled /auth/signin in 707ms (881 modules)
+ GET /auth/signin 200 in 837ms
+ GET / 307 in 51ms
+ ✓ Compiled /dashboard/agency in 392ms (968 modules)
+ GET /dashboard/agency 200 in 536ms
+ ✓ Compiled /api/auth/[...nextauth] in 205ms (635 modules)
+ ✓ Compiled (637 modules)
+ GET /api/contents 200 in 622ms
+ GET /api/auth/session 200 in 845ms
+ GET /api/contents 200 in 26ms
+ GET /api/auth/session 200 in 29ms
+ GET / 307 in 86ms
+ GET /auth/signin 200 in 46ms
+ GET / 307 in 37ms
+ GET /dashboard/agency 200 in 46ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/contents 200 in 42ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/contents 200 in 32ms
+ GET / 307 in 32ms
+ GET /auth/signin 200 in 32ms
+ GET / 307 in 35ms
+ GET /auth/signin 200 in 31ms
+ GET / 307 in 34ms
+ GET /auth/signin 200 in 32ms
+ GET / 307 in 41ms
+ GET /auth/signin 200 in 38ms
+ GET / 307 in 36ms
+ GET /auth/signin 200 in 32ms
+ GET / 307 in 36ms
+ GET /auth/signin 200 in 34ms
+ GET / 307 in 36ms
+ GET /auth/signin 200 in 32ms
+ GET / 307 in 37ms
+ GET /auth/signin 200 in 28ms
+ GET / 307 in 35ms
+ GET /auth/signin 200 in 29ms
+ GET / 307 in 32ms
+ GET /auth/signin 200 in 29ms
+ GET / 307 in 31ms
+ GET /auth/signin 200 in 29ms
+ GET / 307 in 32ms
+ GET /auth/signin 200 in 33ms
+ GET / 307 in 32ms
+ GET /auth/signin 200 in 28ms
+ GET / 307 in 37ms
+ GET /auth/signin 200 in 33ms
+ GET / 307 in 38ms
+ GET /auth/signin 200 in 33ms
+ GET / 307 in 33ms
+ GET /auth/signin 200 in 29ms
+ GET / 307 in 33ms
+ GET /auth/signin 200 in 30ms
+ GET / 307 in 34ms
+ GET /auth/signin 200 in 29ms
+ GET / 307 in 33ms
+ GET /auth/signin 200 in 33ms
+ GET / 307 in 39ms
+ GET /auth/signin 200 in 30ms
+ GET / 307 in 38ms
+ GET /auth/signin 200 in 32ms
+ GET / 307 in 34ms
+ GET /auth/signin 200 in 29ms
+ GET /api/auth/session 200 in 32ms
+ ○ Compiling /dashboard/agency/contents/new ...
+ ✓ Compiled /dashboard/agency/contents/new in 1089ms (1134 modules)
+ GET /dashboard/agency/contents/new?_rsc=1psoa 200 in 45ms
+ ✓ Compiled /api/users in 257ms (714 modules)
+✅ API /users: Session found: {
+  userId: 'cmdn6hsz60000sdo25zwdbgjh',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: null
+🏢 Showing agency users
+📋 Final whereClause: {
+  "role": {
+    "in": [
+      "ADMIN_AGENCY",
+      "EMPLOYEE_AGENCY"
+    ]
+  }
+}
+📊 API /users: Found 2 users
+👥 Users found: [ 'Maria Silva (EMPLOYEE_AGENCY)', 'John Doe (ADMIN_AGENCY)' ]
+ GET /api/users 200 in 374ms
+✅ API /users: Session found: {
+  userId: 'cmdn6hsz60000sdo25zwdbgjh',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: null
+🏢 Showing agency users
+📋 Final whereClause: {
+  "role": {
+    "in": [
+      "ADMIN_AGENCY",
+      "EMPLOYEE_AGENCY"
+    ]
+  }
+}
+📊 API /users: Found 2 users
+👥 Users found: [ 'Maria Silva (EMPLOYEE_AGENCY)', 'John Doe (ADMIN_AGENCY)' ]
+ GET /api/users 200 in 21ms
+ GET / 307 in 92ms
+ GET /auth/signin 200 in 46ms
+ ✓ Compiled /api/upload in 272ms (719 modules)
+ POST /api/upload 200 in 708ms
+ ✓ Compiled /api/files/[...path] in 214ms (721 modules)
+ GET /api/files/images/1753717684206_Captura_de_Tela_2025-07-28_a_s_11.24.20.png 200 in 529ms
+ ✓ Compiled /dashboard/agency/clients in 491ms (1188 modules)
+ GET /dashboard/agency/clients?_rsc=1otpf 200 in 26ms
+✅ API /users: Session found: {
+  userId: 'cmdn6hsz60000sdo25zwdbgjh',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 5 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Teste Cliente (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 26ms
+✅ API /users: Session found: {
+  userId: 'cmdn6hsz60000sdo25zwdbgjh',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: CLIENT
+👑 Admin user - showing all clients
+📋 Final whereClause: {
+  "role": "CLIENT"
+}
+📊 API /users: Found 5 users
+👥 Users found: [
+  't2 (CLIENT)',
+  'Teste Cliente (CLIENT)',
+  'Roberto Lima (CLIENT)',
+  'Ana Costa (CLIENT)',
+  'Carlos Santos (CLIENT)'
+]
+ GET /api/users?role=CLIENT 200 in 21ms
+ GET / 307 in 58ms
+ GET /auth/signin 200 in 43ms
+ ✓ Compiled /dashboard/agency/contents in 461ms (1201 modules)
+ GET /dashboard/agency/contents?_rsc=1rcxn 200 in 26ms
+ ✓ Compiled /api/contents in 239ms (744 modules)
+ GET /api/contents? 200 in 292ms
+ GET /api/contents? 200 in 24ms
+ GET /dashboard/agency/contents/new?_rsc=17iek 200 in 32ms
+✅ API /users: Session found: {
+  userId: 'cmdn6hsz60000sdo25zwdbgjh',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: null
+🏢 Showing agency users
+📋 Final whereClause: {
+  "role": {
+    "in": [
+      "ADMIN_AGENCY",
+      "EMPLOYEE_AGENCY"
+    ]
+  }
+}
+📊 API /users: Found 2 users
+👥 Users found: [ 'Maria Silva (EMPLOYEE_AGENCY)', 'John Doe (ADMIN_AGENCY)' ]
+ GET /api/users 200 in 31ms
+✅ API /users: Session found: {
+  userId: 'cmdn6hsz60000sdo25zwdbgjh',
+  userRole: 'ADMIN_AGENCY',
+  userEmail: 'augusto.adigital@gmail.com'
+}
+🔍 API /users: Requested role filter: null
+🏢 Showing agency users
+📋 Final whereClause: {
+  "role": {
+    "in": [
+      "ADMIN_AGENCY",
+      "EMPLOYEE_AGENCY"
+    ]
+  }
+}
+📊 API /users: Found 2 users
+👥 Users found: [ 'Maria Silva (EMPLOYEE_AGENCY)', 'John Doe (ADMIN_AGENCY)' ]
+ GET /api/users 200 in 24ms
+ POST /api/upload 200 in 616ms
+ GET /api/files/images/1753717726695_Captura_de_Tela_2025-07-28_a_s_11.24.15.png 200 in 39ms
+ GET / 307 in 64ms
+ GET /auth/signin 200 in 46ms
+ GET / 307 in 34ms
+ GET /auth/signin 200 in 31ms
+[?25h

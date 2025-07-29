@@ -1,0 +1,15 @@
+app/api/approvals/route.ts(67,15): error TS2322: Type 'string' is not assignable to type 'ContentStatus | EnumContentStatusFieldUpdateOperationsInput | undefined'.
+lib/auth.ts(17,13): error TS2322: Type '(credentials: Record<"email" | "password", string> | undefined) => Promise<{ id: string; email: string | null; name: string | null; role: UserRole; companyName: string | null; } | null>' is not assignable to type '(credentials: Record<"email" | "password", string> | undefined, req: Pick<RequestInternal, "query" | "body" | "headers" | "method">) => Awaitable<...>'.
+  Type 'Promise<{ id: string; email: string | null; name: string | null; role: UserRole; companyName: string | null; } | null>' is not assignable to type 'Awaitable<User | null>'.
+    Type 'Promise<{ id: string; email: string | null; name: string | null; role: UserRole; companyName: string | null; } | null>' is not assignable to type 'PromiseLike<User | null>'.
+      Types of property 'then' are incompatible.
+        Type '<TResult1 = { id: string; email: string | null; name: string | null; role: UserRole; companyName: string | null; } | null, TResult2 = never>(onfulfilled?: ((value: { id: string; email: string | null; name: string | null; role: UserRole; companyName: string | null; } | null) => TResult1 | PromiseLike<...>) | null | u...' is not assignable to type '<TResult1 = User | null, TResult2 = never>(onfulfilled?: ((value: User | null) => TResult1 | PromiseLike<TResult1>) | null | undefined, onrejected?: ((reason: any) => TResult2 | PromiseLike<...>) | null | undefined) => PromiseLike<...>'.
+          Types of parameters 'onfulfilled' and 'onfulfilled' are incompatible.
+            Types of parameters 'value' and 'value' are incompatible.
+              Type '{ id: string; email: string | null; name: string | null; role: UserRole; companyName: string | null; } | null' is not assignable to type 'User | null'.
+                Type '{ id: string; email: string | null; name: string | null; role: $Enums.UserRole; companyName: string | null; }' is not assignable to type 'User'.
+                  Types of property 'companyName' are incompatible.
+                    Type 'string | null' is not assignable to type 'string | undefined'.
+                      Type 'null' is not assignable to type 'string | undefined'.
+lib/auth.ts(65,9): error TS2322: Type 'string' is not assignable to type 'UserRole'.
+exit_code=2

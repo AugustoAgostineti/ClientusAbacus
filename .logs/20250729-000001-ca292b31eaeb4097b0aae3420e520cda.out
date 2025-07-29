@@ -1,0 +1,47 @@
+No local changes to save
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   app/app/api/download/[id]/route.ts
+	new file:   app/app/api/posts/client/route.ts
+	new file:   app/app/dashboard/client/posts/page.tsx
+	new file:   app/app/design-system/page.tsx
+	new file:   app/components/design-system/README.md
+	new file:   app/components/design-system/components/button/index.ts
+	new file:   app/components/design-system/components/button/liquid-button.tsx
+	new file:   app/components/design-system/components/card/index.ts
+	new file:   app/components/design-system/components/card/liquid-card.tsx
+	new file:   app/components/design-system/components/chart/index.ts
+	new file:   app/components/design-system/components/chart/liquid-chart.tsx
+	new file:   app/components/design-system/components/index.ts
+	new file:   app/components/design-system/components/modal/index.ts
+	new file:   app/components/design-system/components/modal/liquid-modal.tsx
+	new file:   app/components/design-system/components/navbar/index.ts
+	new file:   app/components/design-system/components/navbar/liquid-navbar.tsx
+	new file:   app/components/design-system/components/sidebar/index.ts
+	new file:   app/components/design-system/components/sidebar/liquid-sidebar.tsx
+	new file:   app/components/design-system/components/table/index.ts
+	new file:   app/components/design-system/components/table/liquid-table.tsx
+	new file:   app/components/design-system/config/tokens.ts
+	new file:   app/components/design-system/index.ts
+	new file:   app/components/design-system/showcase/design-system-showcase.tsx
+	new file:   app/components/design-system/showcase/index.ts
+	new file:   app/components/design-system/types/index.ts
+	new file:   app/components/design-system/utils/cn.ts
+	new file:   app/components/pages/client-posts.tsx
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .abacus.donotdelete
+	deleted:    app/app/dashboard/client/comments/page.tsx
+	modified:   app/app/globals.css
+	modified:   app/components/dashboards/agency-dashboard.tsx
+	modified:   app/components/dashboards/client-dashboard.tsx
+	modified:   app/components/layout/dashboard-layout.tsx
+	modified:   app/components/layout/sidebar.tsx
+	modified:   app/components/pages/agency-clients.tsx
+	modified:   app/components/pages/client-approvals.tsx
+	modified:   app/components/pages/client-documents.tsx
+
+Dropped refs/stash@{0} (298f26b7587bcbb1534090ab8fd202e31319b01f)

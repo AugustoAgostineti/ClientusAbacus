@@ -1,0 +1,14 @@
+ ⨯ Failed to generate static paths for /api/auth/[...nextauth]:
+TypeError: Cannot read properties of undefined (reading 'length')
+    at installChunk (/home/ubuntu/social_media_approval_app/app/.next/server/webpack-runtime.js:190:41)
+    at __webpack_require__.f.require (/home/ubuntu/social_media_approval_app/app/.next/server/webpack-runtime.js:200:15)
+    at /home/ubuntu/social_media_approval_app/app/.next/server/webpack-runtime.js:108:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/home/ubuntu/social_media_approval_app/app/.next/server/webpack-runtime.js:107:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/home/ubuntu/social_media_approval_app/app/.next/server/webpack-runtime.js:159:22)
+    at /home/ubuntu/social_media_approval_app/app/.next/server/app/api/auth/[...nextauth]/route.js:362:47
+    at Object.<anonymous> (/home/ubuntu/social_media_approval_app/app/.next/server/app/api/auth/[...nextauth]/route.js:365:3)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14) {
+  type: 'TypeError'
+}

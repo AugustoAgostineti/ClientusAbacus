@@ -14,8 +14,7 @@ import {
   Clock, 
   MessageSquare,
   Calendar,
-  User,
-  Eye
+  User
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -138,44 +137,44 @@ export function ClientApprovalsPage() {
     >
       <div className="space-y-6">
         {contents.length === 0 ? (
-          <Card>
-            <CardContent className="p-8 text-center">
-              <CheckCircle className="h-12 w-12 mx-auto text-gray-400 mb-4" />
+          <div className="bg-white/70 backdrop-blur-md border border-white/40 rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all duration-250">
+            <div className="p-8 text-center">
+              <CheckCircle className="h-12 w-12 mx-auto text-[#B4F461] mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">
                 Nenhuma aprovação pendente
               </h3>
               <p className="text-gray-500">
                 Todos os conteúdos foram revisados. Novos conteúdos aparecerão aqui.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ) : (
           <div className="space-y-6">
             {contents.map((content) => (
-              <Card key={content.id} className="overflow-hidden">
-                <CardHeader>
+              <div key={content.id} className="bg-white/70 backdrop-blur-md border border-white/40 rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-250 ease-out overflow-hidden">
+                <div className="p-6">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <CardTitle className="text-xl mb-2">
+                      <h2 className="text-xl font-bold text-gray-900 mb-2">
                         {content.title}
-                      </CardTitle>
+                      </h2>
                       {content.description && (
-                        <CardDescription className="text-base mb-3">
+                        <p className="text-base text-gray-600 mb-3">
                           {content.description}
-                        </CardDescription>
+                        </p>
                       )}
                       <div className="flex items-center gap-4 text-sm text-gray-500">
                         <div className="flex items-center">
-                          <User className="h-4 w-4 mr-1" />
+                          <User className="h-4 w-4 mr-1 text-[#5C7CFA]" />
                           Criado por {content.creator.name}
                         </div>
                         <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1" />
+                          <Calendar className="h-4 w-4 mr-1 text-[#5C7CFA]" />
                           {new Date(content.createdAt).toLocaleDateString('pt-BR')}
                         </div>
                         {content.scheduledDate && (
                           <div className="flex items-center">
-                            <Clock className="h-4 w-4 mr-1" />
+                            <Clock className="h-4 w-4 mr-1 text-[#5C7CFA]" />
                             Agendado: {new Date(content.scheduledDate).toLocaleDateString('pt-BR')}
                           </div>
                         )}
@@ -185,23 +184,23 @@ export function ClientApprovalsPage() {
                       {content.platforms.map((platform) => (
                         <span
                           key={platform}
-                          className={`px-2 py-1 text-xs rounded-full ${getPlatformBadge(platform)}`}
+                          className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-[#D8C8F7] to-[#E8D8FF] text-[#5C7CFA] border border-white/40 backdrop-blur-sm"
                         >
                           {platform}
                         </span>
                       ))}
                     </div>
                   </div>
-                </CardHeader>
+                </div>
 
-                <CardContent className="space-y-6">
+                <div className="px-6 pb-6 space-y-6">
                   {/* Media Preview */}
                   {content.mediaUrls && content.mediaUrls.length > 0 && (
                     <div>
-                      <h4 className="font-medium mb-3">Mídia</h4>
+                      <h4 className="font-medium mb-3 text-gray-900">Mídia</h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {content.mediaUrls.slice(0, 6).map((url, index) => (
-                          <div key={index} className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                          <div key={index} className="relative aspect-square bg-white/50 backdrop-blur-sm border border-white/40 rounded-xl overflow-hidden">
                             <Image
                               src={url}
                               alt={`Mídia ${index + 1}`}
@@ -211,7 +210,7 @@ export function ClientApprovalsPage() {
                           </div>
                         ))}
                         {content.mediaUrls.length > 6 && (
-                          <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center text-gray-500">
+                          <div className="aspect-square bg-white/50 backdrop-blur-sm border border-white/40 rounded-xl flex items-center justify-center text-gray-500 font-medium">
                             +{content.mediaUrls.length - 6} mais
                           </div>
                         )}
@@ -222,9 +221,9 @@ export function ClientApprovalsPage() {
                   {/* Caption */}
                   {content.caption && (
                     <div>
-                      <h4 className="font-medium mb-2">Legenda</h4>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <p className="whitespace-pre-wrap">{content.caption}</p>
+                      <h4 className="font-medium mb-2 text-gray-900">Legenda</h4>
+                      <div className="bg-white/50 backdrop-blur-sm border border-white/40 p-4 rounded-xl">
+                        <p className="whitespace-pre-wrap text-gray-700">{content.caption}</p>
                       </div>
                     </div>
                   )}
@@ -232,15 +231,15 @@ export function ClientApprovalsPage() {
                   {/* Comments */}
                   {content.comments && content.comments.length > 0 && (
                     <div>
-                      <h4 className="font-medium mb-3 flex items-center">
-                        <MessageSquare className="h-4 w-4 mr-2" />
+                      <h4 className="font-medium mb-3 flex items-center text-gray-900">
+                        <MessageSquare className="h-4 w-4 mr-2 text-[#5C7CFA]" />
                         Comentários ({content.comments.length})
                       </h4>
                       <div className="space-y-3">
                         {content.comments.slice(0, 3).map((comment: any) => (
-                          <div key={comment.id} className="border-l-2 border-blue-200 pl-4">
+                          <div key={comment.id} className="bg-white/50 backdrop-blur-sm border border-white/40 rounded-xl p-4">
                             <div className="flex items-center justify-between mb-1">
-                              <span className="font-medium text-sm">
+                              <span className="font-medium text-sm text-gray-900">
                                 {comment.author.name}
                               </span>
                               <span className="text-xs text-gray-500">
@@ -251,7 +250,7 @@ export function ClientApprovalsPage() {
                           </div>
                         ))}
                         {content.comments.length > 3 && (
-                          <p className="text-sm text-gray-500">
+                          <p className="text-sm text-gray-500 font-medium">
                             +{content.comments.length - 3} comentários...
                           </p>
                         )}
@@ -260,8 +259,8 @@ export function ClientApprovalsPage() {
                   )}
 
                   {/* Feedback Section */}
-                  <div className="border-t pt-6">
-                    <h4 className="font-medium mb-3">Feedback e Aprovação</h4>
+                  <div className="border-t border-white/40 pt-6">
+                    <h4 className="font-medium mb-3 text-gray-900">Feedback e Aprovação</h4>
                     <div className="space-y-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -275,54 +274,38 @@ export function ClientApprovalsPage() {
                           }))}
                           placeholder="Descreva as alterações que gostaria de solicitar..."
                           rows={4}
+                          className="bg-white/70 backdrop-blur-md border-white/40 rounded-xl focus:ring-2 focus:ring-[#5C7CFA]/50 focus:border-[#5C7CFA]/50 transition-all duration-250"
                         />
                       </div>
                       
                       <div className="flex gap-3">
-                        <Button
+                        <button
                           onClick={() => handleApproval(content.id, false)}
                           disabled={submitting[content.id]}
-                          variant="outline"
-                          className="flex-1 text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700"
+                          className="flex-1 inline-flex items-center justify-center px-4 py-2 font-medium rounded-xl bg-gradient-to-r from-red-500 to-red-600 text-white border border-white/40 hover:from-red-600 hover:to-red-700 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(239,68,68,0.25)] active:scale-[0.98] shadow-[0_4px_16px_rgba(239,68,68,0.15)] backdrop-blur-md transition-all duration-250 ease-out disabled:opacity-50 disabled:scale-100"
                         >
                           <XCircle className="mr-2 h-4 w-4" />
                           {submitting[content.id] ? 'Enviando...' : 'Solicitar Alterações'}
-                        </Button>
+                        </button>
                         
-                        <Button
+                        <button
                           onClick={() => handleApproval(content.id, true)}
                           disabled={submitting[content.id]}
-                          className="flex-1 bg-green-600 hover:bg-green-700"
+                          className="flex-1 inline-flex items-center justify-center px-4 py-2 font-medium rounded-xl bg-gradient-to-r from-[#B4F461] to-[#C4F581] text-[#374151] border border-white/40 hover:from-[#A4E441] hover:to-[#B4F471] hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(180,244,97,0.25)] active:scale-[0.98] shadow-[0_4px_16px_rgba(180,244,97,0.15)] backdrop-blur-md transition-all duration-250 ease-out disabled:opacity-50 disabled:scale-100"
                         >
                           <CheckCircle className="mr-2 h-4 w-4" />
                           {submitting[content.id] ? 'Aprovando...' : 'Aprovar'}
-                        </Button>
+                        </button>
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         )}
 
-        {/* Tips Card */}
-        <Card className="border-blue-200 bg-blue-50">
-          <CardHeader>
-            <CardTitle className="text-blue-900 flex items-center">
-              <Eye className="mr-2 h-5 w-5" />
-              Dicas para Aprovação
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-sm text-blue-800">
-              <li>• Revise cuidadosamente o conteúdo visual e as legendas</li>
-              <li>• Verifique se está alinhado com a identidade da sua marca</li>
-              <li>• Use os comentários para dar feedback específico sobre alterações</li>
-              <li>• Confirme se as datas de publicação estão corretas</li>
-            </ul>
-          </CardContent>
-        </Card>
+
       </div>
     </DashboardLayout>
   )

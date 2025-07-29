@@ -1,0 +1,68 @@
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+  ▲ Next.js 14.2.28
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/20) ...
+   Generating static pages (5/20) 
+   Generating static pages (10/20) 
+   Generating static pages (15/20) 
+ ✓ Generating static pages (20/20)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                               Size     First Load JS
+┌ ƒ /                                     138 B          87.4 kB
+├ ○ /_not-found                           872 B          88.1 kB
+├ ƒ /api/approvals                        0 B                0 B
+├ ƒ /api/auth/[...nextauth]               0 B                0 B
+├ ƒ /api/auth/signup                      0 B                0 B
+├ ƒ /api/comments                         0 B                0 B
+├ ƒ /api/contents                         0 B                0 B
+├ ƒ /api/contents/[id]                    0 B                0 B
+├ ƒ /api/contents/[id]/history            0 B                0 B
+├ ƒ /api/debug-users                      0 B                0 B
+├ ƒ /api/download/[id]                    0 B                0 B
+├ ƒ /api/files/[...path]                  0 B                0 B
+├ ƒ /api/notifications                    0 B                0 B
+├ ƒ /api/posts/client                     0 B                0 B
+├ ƒ /api/upload                           0 B                0 B
+├ ƒ /api/users                            0 B                0 B
+├ ƒ /auth/signin                          6.59 kB         113 kB
+├ ƒ /dashboard/agency                     2.09 kB         145 kB
+├ ƒ /dashboard/agency/calendar            2.4 kB          145 kB
+├ ƒ /dashboard/agency/clients             6.14 kB         157 kB
+├ ƒ /dashboard/agency/comments            2.41 kB         145 kB
+├ ƒ /dashboard/agency/contents            4.83 kB         160 kB
+├ ƒ /dashboard/agency/contents/[id]       19.6 kB         168 kB
+├ ƒ /dashboard/agency/contents/[id]/edit  9.49 kB         168 kB
+├ ƒ /dashboard/agency/contents/new        4.36 kB         163 kB
+├ ƒ /dashboard/agency/documents           3.21 kB         146 kB
+├ ƒ /dashboard/agency/notifications       2.74 kB         146 kB
+├ ƒ /dashboard/client                     2.3 kB          145 kB
+├ ƒ /dashboard/client/approvals           3.33 kB         152 kB
+├ ƒ /dashboard/client/calendar            2.6 kB          146 kB
+├ ƒ /dashboard/client/documents           3.15 kB         146 kB
+├ ƒ /dashboard/client/notifications       2.58 kB         146 kB
+├ ƒ /dashboard/client/posts               5.46 kB         160 kB
+└ ○ /design-system                        10.7 kB         120 kB
++ First Load JS shared by all             87.2 kB
+  ├ chunks/156-4b52176193e999b1.js        31.7 kB
+  ├ chunks/ceb5afef-a88ae4c1d1f36d80.js   53.6 kB
+  └ other shared chunks (total)           1.96 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+exit_code=0

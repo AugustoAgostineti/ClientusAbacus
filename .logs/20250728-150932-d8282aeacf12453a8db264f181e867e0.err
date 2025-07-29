@@ -1,0 +1,31 @@
+
+
+===== TS errors =====
+
+[Test Mode] ./app/api/debug-users/route.ts:57:44
+Type error: 'error' is of type 'unknown'.
+
+[0m [90m 55 |[39m     console[33m.[39merror([32m'🧪 DEBUG Error:'[39m[33m,[39m error)[0m
+[0m [90m 56 |[39m     [36mreturn[39m [33mNextResponse[39m[33m.[39mjson([0m
+[0m[31m[1m>[22m[39m[90m 57 |[39m       { error[33m:[39m [32m'Debug API error'[39m[33m,[39m details[33m:[39m error[33m.[39mmessage }[33m,[39m[0m
+[0m [90m    |[39m                                            [31m[1m^[22m[39m[0m
+[0m [90m 58 |[39m       { status[33m:[39m [35m500[39m }[0m
+[0m [90m 59 |[39m     )[0m
+[0m [90m 60 |[39m   }[0m
+
+===== TS errors =====
+
+
+Failed to compile.
+
+./app/api/debug-users/route.ts:57:44
+Type error: 'error' is of type 'unknown'.
+
+[0m [90m 55 |[39m     console[33m.[39merror([32m'🧪 DEBUG Error:'[39m[33m,[39m error)[0m
+[0m [90m 56 |[39m     [36mreturn[39m [33mNextResponse[39m[33m.[39mjson([0m
+[0m[31m[1m>[22m[39m[90m 57 |[39m       { error[33m:[39m [32m'Debug API error'[39m[33m,[39m details[33m:[39m error[33m.[39mmessage }[33m,[39m[0m
+[0m [90m    |[39m                                            [31m[1m^[22m[39m[0m
+[0m [90m 58 |[39m       { status[33m:[39m [35m500[39m }[0m
+[0m [90m 59 |[39m     )[0m
+[0m [90m 60 |[39m   }[0m
+Next.js build worker exited with code: 1 and signal: null

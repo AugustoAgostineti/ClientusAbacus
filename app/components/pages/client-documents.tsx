@@ -309,23 +309,7 @@ export function ClientDocumentsPage() {
           </CardContent>
         </Card>
 
-        {/* Tips for Clients */}
-        <Card className="border-green-200 bg-green-50">
-          <CardHeader>
-            <CardTitle className="text-green-900 flex items-center">
-              <FileText className="mr-2 h-5 w-5" />
-              Dicas para Documentos
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-sm text-green-800">
-              <li>• Mantenha seus briefings sempre atualizados e detalhados</li>
-              <li>• Compartilhe referências visuais para facilitar o trabalho da agência</li>
-              <li>• Organize os arquivos com nomes descritivos</li>
-              <li>• Use pastas para categorizar diferentes tipos de documentos</li>
-            </ul>
-          </CardContent>
-        </Card>
+
       </div>
     </DashboardLayout>
   )

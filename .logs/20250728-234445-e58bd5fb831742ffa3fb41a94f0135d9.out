@@ -1,0 +1,6 @@
+.build/types/app/dashboard/client/comments/page.ts(2,24): error TS2307: Cannot find module '../../../../../../app/dashboard/client/comments/page.js' or its corresponding type declarations.
+.build/types/app/dashboard/client/comments/page.ts(5,29): error TS2307: Cannot find module '../../../../../../app/dashboard/client/comments/page.js' or its corresponding type declarations.
+components/pages/client-posts.tsx(19,3): error TS2300: Duplicate identifier 'Image'.
+components/pages/client-posts.tsx(33,8): error TS2300: Duplicate identifier 'Image'.
+components/pages/client-posts.tsx(381,27): error TS2322: Type 'boolean' is not assignable to type 'string'.
+exit_code=2
